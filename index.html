@@ -3,61 +3,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Willkommen</title>
+  <title>Unsere Hochzeit</title>
   <style>
+    :root {
+      --primary: #7b4d9c;
+      --accent: #f7e9ff;
+      --text: #333;
+    }
     body {
-      font-family: sans-serif;
-      background: #f3f4f6;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      background: var(--accent);
+      color: var(--text);
+    }
+    header img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: cover;
+      border-bottom: 6px solid var(--primary);
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1, h2 {
+      color: var(--primary);
+    }
+    a {
+      color: var(--primary);
+      text-decoration: underline;
     }
     #login, #content {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: none;
+    }
+    #login.active, #content.active {
+      display: block;
     }
     input {
       padding: 0.5rem;
-      margin-top: 0.5rem;
       width: 100%;
+      margin-top: 1rem;
     }
     button {
       margin-top: 1rem;
-      padding: 0.5rem 1rem;
+      padding: 0.6rem 1rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
+    }
+    .timeline {
+      margin-top: 1rem;
+      border-left: 3px solid var(--primary);
+      padding-left: 1rem;
+    }
+    .timeline p {
+      margin: 0.8rem 0;
     }
   </style>
 </head>
 <body>
-  <div id="login">
-    <h2>Passwort erforderlich</h2>
-    <input type="password" id="pw" placeholder="Passwort eingeben">
-    <button onclick="checkPassword()">Login</button>
-    <p id="error" style="color:red;"></p>
+
+<!-- Login-Bereich -->
+<div class="container" id="login" class="active">
+  <h2>Passwort erforderlich</h2>
+  <input type="password" id="pw" placeholder="Passwort eingeben">
+  <button onclick="checkPassword()">Login</button>
+  <p id="error" style="color:red;"></p>
+</div>
+
+<!-- Hauptinhalt -->
+<div id="content">
+  <header>
+    <!-- Schloss Brühl Bild -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Schloss_Augustusburg_Bruehl.jpg/1200px-Schloss_Augustusburg_Bruehl.jpg" alt="Schloss Brühl">
+  </header>
+
+  <div class="container">
+    <h1>Willkommen zu unserer Hochzeit!</h1>
+    <p>Wir freuen uns riesig, diesen besonderen Tag mit Euch zu teilen 💜</p>
+
+    <h2>Ablauf</h2>
+    <div class="timeline">
+      <p><strong>14:00 Uhr</strong> – <a href="https://goo.gl/maps/abcd1234" target="_blank">Trauung im Schloss Brühl</a></p>
+      <p><strong>15:30 Uhr</strong> – Sektempfang im Schlossgarten</p>
+      <p><strong>17:00 Uhr</strong> – <a href="https://goo.gl/maps/xyz5678" target="_blank">Abendessen & Feier im Restaurant Rosenhof</a></p>
+    </div>
+
+    <h2>Hinweise</h2>
+    <ul>
+      <li>🎩 Dresscode: festlich-elegant, Farben gerne in Pastelltönen</li>
+      <li>🎁 Wir freuen uns über einen Beitrag zur Hochzeitsreise</li>
+      <li>🅿️ Parkplätze sind am Schloss vorhanden</li>
+    </ul>
+
+    <h2>Farbschema / Motto</h2>
+    <p>Unser Tag steht unter dem Motto <strong>„Lila Liebe & Lavendelträume“</strong>. Wer mag, kann sich farblich gern anschließen 💜</p>
+
+    <h2>📷 Unser Online-Fotoalbum</h2>
+    <p>Teilt und seht alle Fotos hier:  
+      <a href="https://www.dein-fotoalbum-link.de" target="_blank">→ Zum Fotoalbum</a></p>
   </div>
+</div>
 
-  <div id="content" style="display:none;">
-    <h1>Willkommen zur Hochzeit!</h1>
-    <p>Hier findet Ihr alle Infos rund um den großen Tag 🕊️</p>
-    <!-- Weitere Inhalte hier -->
-  </div>
+<script>
+  const correctPassword = "geheim2025"; // Passwort anpassen
 
-  <script>
-    const correctPassword = "geheim2025"; // Hier dein Passwort setzen
-
-    function checkPassword() {
-      const pwInput = document.getElementById('pw').value;
-      if (pwInput === correctPassword) {
-        document.getElementById('login').style.display = 'none';
-        document.getElementById('content').style.display = 'block';
-      } else {
-        document.getElementById('error').textContent = "Falsches Passwort.";
-      }
+  function checkPassword() {
+    const pwInput = document.getElementById('pw').value;
+    if (pwInput === correctPassword) {
+      document.getElementById('login').classList.remove("active");
+      document.getElementById('content').classList.add("active");
+    } else {
+      document.getElementById('error').textContent = "Falsches Passwort.";
     }
-  </script>
+  }
+
+  // Zeige Login initial
+  document.getElementById('login').classList.add("active");
+</script>
 </body>
 </html>
