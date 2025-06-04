@@ -1,129 +1,87 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Unsere Hochzeit</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hochzeit</title>
   <style>
-    :root {
-      --primary: #7b4d9c;
-      --accent: #f7e9ff;
-      --text: #333;
-    }
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fdf6e4;
+      color: #3b2c20;
+      text-align: center;
       margin: 0;
-      background: var(--accent);
-      color: var(--text);
-    }
-    header img {
-      width: 100%;
-      height: auto;
-      max-height: 300px;
-      object-fit: cover;
-      border-bottom: 6px solid var(--primary);
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
       padding: 2rem;
     }
-    h1, h2 {
-      color: var(--primary);
-    }
-    a {
-      color: var(--primary);
-      text-decoration: underline;
-    }
-    #login, #content {
-      display: none;
-    }
-    #login.active, #content.active {
-      display: block;
-    }
-    input {
-      padding: 0.5rem;
-      width: 100%;
+    input, button {
+      padding: 0.6rem;
+      font-size: 1rem;
       margin-top: 1rem;
     }
     button {
-      margin-top: 1rem;
-      padding: 0.6rem 1rem;
-      background: var(--primary);
+      background-color: #a97c50;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
-    .timeline {
-      margin-top: 1rem;
-      border-left: 3px solid var(--primary);
-      padding-left: 1rem;
-    }
-    .timeline p {
-      margin: 0.8rem 0;
+    #error {
+      color: red;
     }
   </style>
 </head>
 <body>
 
-<!-- Login-Bereich -->
-<div class="container" id="login" class="active">
-  <h2>Passwort erforderlich</h2>
-  <input type="password" id="pw" placeholder="Passwort eingeben">
-  <button onclick="checkPassword()">Login</button>
-  <p id="error" style="color:red;"></p>
-</div>
-
-<!-- Hauptinhalt -->
-<div id="content">
-  <header>
-    <!-- Schloss Brühl Bild -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Schloss_Augustusburg_Bruehl.jpg/1200px-Schloss_Augustusburg_Bruehl.jpg" alt="Schloss Brühl">
-  </header>
-
-  <div class="container">
-    <h1>Willkommen zu unserer Hochzeit!</h1>
-    <p>Wir freuen uns riesig, diesen besonderen Tag mit Euch zu teilen 💜</p>
-
-    <h2>Ablauf</h2>
-    <div class="timeline">
-      <p><strong>14:00 Uhr</strong> – <a href="https://goo.gl/maps/abcd1234" target="_blank">Trauung im Schloss Brühl</a></p>
-      <p><strong>15:30 Uhr</strong> – Sektempfang im Schlossgarten</p>
-      <p><strong>17:00 Uhr</strong> – <a href="https://goo.gl/maps/xyz5678" target="_blank">Abendessen & Feier im Restaurant Rosenhof</a></p>
-    </div>
-
-    <h2>Hinweise</h2>
-    <ul>
-      <li>🎩 Dresscode: festlich-elegant, Farben gerne in Pastelltönen</li>
-      <li>🎁 Wir freuen uns über einen Beitrag zur Hochzeitsreise</li>
-      <li>🅿️ Parkplätze sind am Schloss vorhanden</li>
-    </ul>
-
-    <h2>Farbschema / Motto</h2>
-    <p>Unser Tag steht unter dem Motto <strong>„Lila Liebe & Lavendelträume“</strong>. Wer mag, kann sich farblich gern anschließen 💜</p>
-
-    <h2>📷 Unser Online-Fotoalbum</h2>
-    <p>Teilt und seht alle Fotos hier:  
-      <a href="https://www.dein-fotoalbum-link.de" target="_blank">→ Zum Fotoalbum</a></p>
-  </div>
-</div>
+<h2>Willkommen – bitte Passwort eingeben</h2>
+<input type="password" id="pw" placeholder="Passwort">
+<br>
+<button onclick="checkPassword()">Login</button>
+<p id="error"></p>
 
 <script>
-  const correctPassword = "geheim2025"; // Passwort anpassen
+  const correctPassword = "geheim2025";
 
   function checkPassword() {
-    const pwInput = document.getElementById('pw').value;
-    if (pwInput === correctPassword) {
-      document.getElementById('login').classList.remove("active");
-      document.getElementById('content').classList.add("active");
+    const pw = document.getElementById('pw').value;
+    if (pw === correctPassword) {
+      loadMainPage();
     } else {
       document.getElementById('error').textContent = "Falsches Passwort.";
     }
   }
 
-  // Zeige Login initial
-  document.getElementById('login').classList.add("active");
+  function loadMainPage() {
+    document.body.innerHTML = `
+      <header>
+        <img src="https://cdn.openai.com/chatgpt/images/A_German-language_wedding_webpage_with_password_pr.png" alt="Banner" style="width:100%;max-height:340px;object-fit:cover;">
+      </header>
+      <div style="max-width:800px;margin:auto;padding:2rem;">
+        <h1 style="font-family:'Great Vibes',cursive;color:#a97c50;">Willkommen zu unserer Hochzeit!</h1>
+        <p>Wir freuen uns riesig, diesen besonderen Tag mit Euch zu teilen ✨</p>
+
+        <h2 style="font-family:'Great Vibes',cursive;color:#a97c50;">Ablauf</h2>
+        <p>14:00 Uhr – <a href="#">Trauung im Schloss</a></p>
+        <p>15:30 Uhr – Sektempfang im Garten</p>
+        <p>17:00 Uhr – <a href="#">Feier im Hotel</a></p>
+
+        <h2 style="font-family:'Great Vibes',cursive;color:#a97c50;">Hinweise</h2>
+        <ul style="text-align:left;display:inline-block;">
+          <li>✨ Dresscode: Champagnerfarben</li>
+          <li>🎁 Keine Geschenke, nur gute Laune & Flittkasse</li>
+          <li>🚫 Kein Reiswerfen</li>
+        </ul>
+
+        <h2 style="font-family:'Great Vibes',cursive;color:#a97c50;">Motto</h2>
+        <p>„Champagner-Party“ in edlen Cremefarben 🤍</p>
+
+        <h2 style="font-family:'Great Vibes',cursive;color:#a97c50;">📷 Fotoalbum</h2>
+        <p><a href="https://www.dein-fotoalbum.de" target="_blank">→ Hier Fotos hochladen & anschauen</a></p>
+      </div>
+
+      <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap" rel="stylesheet">
+    `;
+  }
 </script>
+
 </body>
 </html>
