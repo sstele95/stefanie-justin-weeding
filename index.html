@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Willkommen</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    #login, #content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input {
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      width: 100%;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="login">
+    <h2>Passwort erforderlich</h2>
+    <input type="password" id="pw" placeholder="Passwort eingeben">
+    <button onclick="checkPassword()">Login</button>
+    <p id="error" style="color:red;"></p>
+  </div>
+
+  <div id="content" style="display:none;">
+    <h1>Willkommen zur Hochzeit!</h1>
+    <p>Hier findet Ihr alle Infos rund um den großen Tag 🕊️</p>
+    <!-- Weitere Inhalte hier -->
+  </div>
+
+  <script>
+    const correctPassword = "geheim2025"; // Hier dein Passwort setzen
+
+    function checkPassword() {
+      const pwInput = document.getElementById('pw').value;
+      if (pwInput === correctPassword) {
+        document.getElementById('login').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+      } else {
+        document.getElementById('error').textContent = "Falsches Passwort.";
+      }
+    }
+  </script>
+</body>
+</html>
