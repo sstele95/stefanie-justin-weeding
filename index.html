@@ -39,16 +39,19 @@
 <p id="error"></p>
 
 <script>
-  const correctPassword = "geheim2025";
+const passwordHash = "5f1ec5dbb8d4d58e3bdb79d6e725f79c087b4f1249e91c6233c2aefc00e25c63"; 
 
-  function checkPassword() {
-    const pw = document.getElementById('pw').value;
-    if (pw === correctPassword) {
-      loadMainPage();
-    } else {
-      document.getElementById('error').textContent = "Falsches Passwort.";
-    }
+async function checkPassword() {
+  const input = document.getElementById('pw').value;
+  const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input));
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  if (hashHex === passwordHash) {
+    loadMainPage();
+  } else {
+    document.getElementById('error').textContent = "Falsches Passwort.";
   }
+}
 
   function loadMainPage() {
     document.body.innerHTML = `
