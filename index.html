@@ -73,71 +73,15 @@
       background-color: #c2925e;
     }
 
-    /* Timetable Section */
-    .timeline {
+    /* Timetable Bild */
+    .timetable {
       background: #fdf6e4; /* champagner-beige */
-      padding: 4rem 2rem;
+      padding: 3rem 1rem;
     }
 
-    .timeline h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #3b2c20;
-    }
-
-    .timeline-container {
-      display: flex;
-      justify-content: space-around;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 2rem;
-      position: relative;
-    }
-
-    .timeline-container::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: #a97c50;
-      z-index: 0;
-    }
-
-    .timeline-item {
-      background: #fff;
-      border-radius: 10px;
-      padding: 1rem;
-      min-width: 120px;
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .timeline-item img {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 0.5rem;
-    }
-
-    .timeline-item p {
-      margin: 0.3rem 0;
-      color: #3b2c20;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 768px) {
-      .timeline-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .timeline-container::before {
-        width: 4px;
-        height: 100%;
-        left: 50%;
-        top: 0;
-      }
+    .timetable img {
+      max-width: 100%;
+      height: auto;
     }
   </style>
 </head>
@@ -156,36 +100,9 @@
     </div>
   </div>
 
-  <!-- Timeline Section -->
-  <section class="timeline">
-    <h2>Tagesablauf</h2>
-    <div class="timeline-container">
-      <div class="timeline-item">
-        <img src="icons/gettingtogether.png" alt="Ceremony">
-        <p>13:30</p>
-        <p>Zusammenfinden</p>
-      </div>
-      <div class="timeline-item">
-        <img src="icons/ceremony.png" alt="Trauung">
-        <p>14:00</p>
-        <p>Trauung im Schlossgarten</p>
-      </div>
-      <div class="timeline-item">
-        <img src="icons/champagne.png" alt="Sektempfang">
-        <p>15:00</p>
-        <p>Sektempfang & Kuchen</p>
-      </div>
-      <div class="timeline-item">
-        <img src="icons/dinner.png" alt="Dinner">
-        <p>18:00</p>
-        <p>Speisen</p>
-      </div>
-      <div class="timeline-item">
-        <img src="icons/party.png" alt="Cake">
-        <p>20:30</p>
-        <p>Party</p>
-      </div>
-    </div>
+  <!-- Timetable Section -->
+  <section class="timetable">
+    <img src="timetable.png" alt="Tagesablauf">
   </section>
 
 </body>
