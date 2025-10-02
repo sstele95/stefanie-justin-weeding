@@ -13,8 +13,40 @@
       height: 100%;
       font-family: 'Playfair Display', serif;
       color: white;
+      text-align: center;
     }
 
+    /* Login-Ansicht */
+    .login {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #fdf6e4;
+      color: #3b2c20;
+    }
+
+    input, button {
+      padding: 0.6rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+
+    button {
+      background-color: #a97c50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #error {
+      color: red;
+      margin-top: 1rem;
+    }
+
+    /* Hauptseite nach Login */
     .hero {
       background: url("Steffi&Justin-9.jpg") no-repeat center center;
       background-size: cover;
@@ -27,7 +59,7 @@
     }
 
     .overlay {
-      background: rgba(0, 0, 0, 0.3); /* leichter Kontrast */
+      background: rgba(0, 0, 0, 0.3);
       position: absolute;
       top: 0; left: 0;
       width: 100%;
@@ -48,11 +80,36 @@
     .hero-content h1 {
       font-size: 3rem;
       margin: 0.5rem 0;
+      font-family: 'Aniyah'
     }
 
     .hero-content p {
       font-size: 1.2rem;
       margin-top: 1rem;
+    }
+
+    /* Button oben rechts */
+    .top-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 2;
+    }
+
+    .top-button a {
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.85);
+      color: #2c2c2c;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .top-button a:hover {
+      background: white;
+      color: #000;
     }
 
     @media (max-width: 600px) {
@@ -62,17 +119,59 @@
       .hero-content h3, .hero-content p {
         font-size: 1rem;
       }
+      .top-button a {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h3>Wir heiraten!</h3>
-      <h1>Stefanie & Justin</h1>
-      <p>29 . 08 . 26</p>
-    </div>
+
+  <!-- Login Maske -->
+  <div class="login" id="login-screen">
+    <h2>Willkommen – bitte Passwort eingeben</h2>
+    <input type="password" id="pw" placeholder="Passwort">
+    <br>
+    <button onclick="checkPassword()">Login</button>
+    <p id="error"></p>
   </div>
+
+<script>
+const passwordHash = "0ed93bf0a009d4fcdef56f82f69d4bdf6d1b78bafc33999c6acd01319f5a6c28"; 
+
+async function checkPassword() {
+  const input = document.getElementById('pw').value;
+  const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input));
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  if (hashHex === passwordHash) {
+    loadMainPage();
+  } else {
+    document.getElementById('error').textContent = "Falsches Passwort.";
+  }
+}
+
+function loadMainPage() {
+  document.body.innerHTML = `
+    <div class="hero">
+      <div class="overlay"></div>
+
+      <div class="top-button">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf48I2QsqReb45qMzkJxMIEm3gOFlpuBEErMN1_zyM9ziW0Qw/viewform" target="_blank">
+          Zu- oder Absagen
+        </a>
+      </div>
+
+      <div class="hero-content">
+        <h3>Wir heiraten!</h3>
+        <h1>Stefanie & Justin</h1>
+        <p>29 . 08 . 26</p>
+      </div>
+    </div>
+  `;
+}
+</script>
+
 </body>
 </html>
