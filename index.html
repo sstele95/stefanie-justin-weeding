@@ -145,18 +145,18 @@
 <script>
 const passwordHash = "0ed93bf0a009d4fcdef56f82f69d4bdf6d1b78bafc33999c6acd01319f5a6c28"; // dein SHA-256 Hash
 
-async function checkPassword() {
+/*async function checkPassword() {
   const input = document.getElementById('pw').value;
   const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input));
   const hashArray = Array.from(new Uint8Array(hashBuffer));
   const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
-  if (hashHex === passwordHash) {
+  if (hashHex === passwordHash) {*/
     loadMainPage();
-  } else {
+  /*} else {
     document.getElementById('error').textContent = "Falsches Passwort.";
   }
-}
+}*/
 
 function loadMainPage() {
   document.body.innerHTML = `
