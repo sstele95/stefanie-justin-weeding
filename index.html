@@ -153,8 +153,8 @@
   position: absolute;
   top: 0; left: 0;
   width: 100%;
-  height: 100%; /* größer setzen, damit Bild länger sichtbar bleibt */
-  transform: translateY(-50px);
+  height: 120%; 
+  transform: translateY(0);
   will-change: transform;
   z-index: 0; /* hinter den Overlay und Content */
 }
@@ -259,22 +259,15 @@ window.addEventListener('scroll', function() {
   const parallax = document.querySelector('.parallax-bg');
   if (!parallax) return;
 
-  // Abstand der Section vom oberen Bildschirmrand
   const section = parallax.parentElement;
-  const rect = section.getBoundingClientRect();
+  const sectionTop = section.offsetTop;
+  const scrollY = window.pageYOffset;
+  const relativeY = scrollY - sectionTop;
 
-  // Nur berechnen, wenn die Section im Sichtbereich ist
-  if (rect.top < window.innerHeight && rect.bottom > 0) {
-    let scrollY = window.pageYOffset;
-    let sectionTop = section.offsetTop;
-
-    // relativer Scroll innerhalb der Section
-    let relativeY = scrollY - sectionTop;
-
-    // Effekt: bewegt das Bild langsamer als den Scroll
-    parallax.style.transform = 'translateY(' + relativeY * 0.5 + 'px)';
-  }
+  // Bild verschieben, Container bleibt gleich
+  parallax.style.transform = 'translateY(' + relativeY * 0.5 + 'px)';
 });
+
 
 
 
