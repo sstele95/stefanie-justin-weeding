@@ -142,21 +142,24 @@
     }
 
     /* Portrait-Section mit Parallax */
-    .portrait-section {
-      position: relative;
-      height: 60vh;
-      overflow: hidden;
-    }
+.portrait-section {
+  position: relative;
+  height: 60vh;
+  overflow: hidden;
+  background: none; /* kein eigener Hintergrund */
+}
 
     .parallax-bg {
-      background: url("Steffi&Justin-7.jpg") center center / cover no-repeat;
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 120%;
-      transform: translateY(0);
-      will-change: transform;
-    }
+  background: url("Steffi&Justin-7.jpg") center center / cover no-repeat;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 200%; /* größer setzen, damit Bild länger sichtbar bleibt */
+  transform: translateY(0);
+  will-change: transform;
+  z-index: -1; /* hinter den Overlay und Content */
+}
+
 
     .portrait-overlay {
       position: absolute;
@@ -252,13 +255,18 @@ async function checkPassword() {
 }
 */
 
-// Parallax-Effekt
 window.addEventListener('scroll', function() {
   const parallax = document.querySelector('.parallax-bg');
   if (!parallax) return;
-  let scrollTop = window.pageYOffset;
-  parallax.style.transform = 'translateY(' + scrollTop * 0.3 + 'px)';
+  let rect = parallax.parentElement.getBoundingClientRect();
+  // Nur wenn Abschnitt in Sichtbereich
+  if (rect.bottom > 0 && rect.top < window.innerHeight) {
+    let scrollTop = window.pageYOffset;
+    // Du kannst einen Offset berechnen, z. B. scrollTop - sectionTop
+    parallax.style.transform = 'translateY(' + (scrollTop * 0.3) + 'px)';
+  }
 });
+
 </script>
 
 </body>
