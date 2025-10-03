@@ -265,15 +265,21 @@ window.addEventListener('scroll', function() {
   const scrollY = window.pageYOffset;
   const windowHeight = window.innerHeight;
 
-  // Scroll-Fortschritt der Section berechnen (0 = unten, 1 = oben erreicht)
+  // Scroll-Fortschritt (0 = Section betritt Sichtfeld, 1 = verlässt es)
   const progress = (scrollY + windowHeight - sectionTop) / (sectionHeight + windowHeight);
 
-  // Verschiebung zwischen 0% und -80% der Bildhöhe (weil 180% hoch)
-  const maxShift = (parallax.offsetHeight - sectionHeight) * -1;
-  const translateY = maxShift * progress;
+  // Begrenzen auf 0–1
+  const bounded = Math.min(Math.max(progress, 0), 1);
+
+  // Maximaler Verschiebeweg (Bildhöhe - Fensterhöhe)
+  const maxShift = parallax.offsetHeight - sectionHeight;
+
+  // Start unten (0), Ende oben (-maxShift)
+  const translateY = -maxShift * (1 - bounded);
 
   parallax.style.transform = `translateY(${translateY}px)`;
 });
+
 
 
 
