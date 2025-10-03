@@ -275,7 +275,8 @@ window.addEventListener('scroll', function() {
   const maxShift = parallax.offsetHeight - sectionHeight;
 
   // Start unten (0), Ende oben (-maxShift)
-  const translateY = -maxShift * (1 - bounded);
+  const translateY = -maxShift * 1.5 * (1 - bounded);
+
 
   parallax.style.transform = `translateY(${translateY}px)`;
 });
