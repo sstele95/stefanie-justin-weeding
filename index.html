@@ -226,19 +226,21 @@ function loadMainPage() {
       <span>-Interstellar</span>
     </blockquote>
   </div>
-</section>
-    <section class="timetable">
-      <img src="timetable.svg" alt="Tagesablauf">
-    </section>
-  `;
-}
-    // Parallax-Effekt
+        // Parallax-Effekt
 window.addEventListener('scroll', function() {
   const parallax = document.querySelector('.parallax-bg');
   if (!parallax) return; // nur ausführen, wenn Abschnitt existiert
   let scrollTop = window.pageYOffset;
   parallax.style.transform = 'translateY(' + scrollTop * 0.3 + 'px)';
 });
+</section>
+    <section class="timetable">
+      <img src="timetable.svg" alt="Tagesablauf">
+    </section>
+  `;
+
+}
+
 </script>
 
 </body>
