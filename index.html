@@ -146,7 +146,6 @@
   position: relative;
   height: 60vh;
   overflow: hidden;
-  background: none; /* kein eigener Hintergrund */
 }
 
     .parallax-bg {
@@ -259,9 +258,24 @@ async function checkPassword() {
 window.addEventListener('scroll', function() {
   const parallax = document.querySelector('.parallax-bg');
   if (!parallax) return;
-  let offset = window.pageYOffset;
-  parallax.style.transform = 'translateY(' + offset * 0.5 + 'px)';
+
+  // Abstand der Section vom oberen Bildschirmrand
+  const section = parallax.parentElement;
+  const rect = section.getBoundingClientRect();
+
+  // Nur berechnen, wenn die Section im Sichtbereich ist
+  if (rect.top < window.innerHeight && rect.bottom > 0) {
+    let scrollY = window.pageYOffset;
+    let sectionTop = section.offsetTop;
+
+    // relativer Scroll innerhalb der Section
+    let relativeY = scrollY - sectionTop;
+
+    // Effekt: bewegt das Bild langsamer als den Scroll
+    parallax.style.transform = 'translateY(' + relativeY * 0.3 + 'px)';
+  }
 });
+
 
 
 </script>
