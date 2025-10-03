@@ -141,16 +141,20 @@
       box-shadow: none;
       border-radius: 0;
     }
-    .portrait-section {
+  .portrait-section {
   position: relative;
-  height: 60vh; /* Höhe kann angepasst werden */
-  background: url("Steffi&Justin-7.jpg") center center no-repeat;
-  background-size: cover;
-  background-attachment: fixed; /* sorgt für edlen Parallax-Effekt */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.parallax-bg {
+  background: url("Steffi&Justin-7.jpg") center center / cover no-repeat;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 120%;   /* größer, damit wir Spielraum haben */
+  transform: translateY(-20%); 
+  will-change: transform;
 }
 
 .portrait-overlay {
@@ -158,32 +162,17 @@
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.35); /* halbtransparentes Overlay */
+  background: rgba(0,0,0,0.35);
 }
 
 .portrait-content {
   position: relative;
   z-index: 1;
   text-align: center;
+  color: white;
   padding: 2rem;
-  max-width: 800px;
 }
 
-.portrait-content blockquote {
-  font-size: 1.8rem;
-  font-style: italic;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.portrait-content blockquote span {
-  display: block;
-  margin-top: 1rem;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  opacity: 0.85;
-}
 
   </style>
 </head>
@@ -229,6 +218,7 @@ function loadMainPage() {
       <img src="timetable.svg" alt="Tagesablauf">
     </section>
     <section class="portrait-section">
+  <div class="parallax-bg"></div>
   <div class="portrait-overlay"></div>
   <div class="portrait-content">
     <blockquote>
