@@ -232,6 +232,13 @@ function loadMainPage() {
     </section>
   `;
 }
+    // Parallax-Effekt
+window.addEventListener('scroll', function() {
+  const parallax = document.querySelector('.parallax-bg');
+  if (!parallax) return; // nur ausführen, wenn Abschnitt existiert
+  let scrollTop = window.pageYOffset;
+  parallax.style.transform = 'translateY(' + scrollTop * 0.3 + 'px)';
+});
 </script>
 
 </body>
