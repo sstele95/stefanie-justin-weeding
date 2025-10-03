@@ -177,19 +177,32 @@
       padding: 2rem;
     }
 
-    .portrait-content blockquote {
-      font-size: 1.6rem;
-      font-style: italic;
-      line-height: 1.6;
-      margin: 0;
-    }
+.portrait-content blockquote {
+  font-size: 1.8rem;
+  font-style: italic;
+  line-height: 1.4;
+  margin: 0;
+}
 
-    .portrait-content blockquote span {
-      display: block;
-      margin-top: 1rem;
-      font-size: 1rem;
-      opacity: 0.85;
-    }
+.portrait-content blockquote span {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+/* Responsive Anpassung */
+@media (max-width: 768px) {
+  .portrait-content blockquote {
+    font-size: 1.2rem;  /* kleiner für Tablets/Handys */
+    line-height: 1.4;
+  }
+
+  .portrait-content blockquote span {
+    font-size: 0.9rem;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -275,7 +288,7 @@ window.addEventListener('scroll', function() {
   const maxShift = parallax.offsetHeight - sectionHeight;
 
   // Start unten (0), Ende oben (-maxShift)
-  const translateY = -maxShift * 2.5 * (1 - bounded);
+  const translateY = -maxShift * (1 - bounded);
 
 
   parallax.style.transform = `translateY(${translateY}px)`;
