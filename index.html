@@ -100,23 +100,22 @@
     }
 
     /* Button im Hero */
-.hero-content a button {
-  margin-top: 1.5rem;
-  background: rgba(255, 255, 255, 0.7); /* Weiß transparent */
-  color: #6d7f5f; /* Grünton passend zur Palette */
-  border: none; /* kein Rand */
-  border-radius: 35px;
-  cursor: pointer;
-  padding: 1rem 2.4rem;
-  font-size: 1.3rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
+    .hero-content a button {
+      margin-top: 1.5rem;
+      background: rgba(255, 255, 255, 0.7); /* Weiß transparent */
+      color: #6d7f5f; /* Grünton passend zur Palette */
+      border: none;
+      border-radius: 35px;
+      cursor: pointer;
+      padding: 1rem 2.4rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
 
     .hero-content a button:hover {
       background: rgba(140, 119, 96, 0.9);
       color: #fff;
-      border-color: #8c7760;
     }
 
     @media (max-width: 768px) {
@@ -141,44 +140,59 @@
       box-shadow: none;
       border-radius: 0;
     }
-  .portrait-section {
-  position: relative;
-  height: 60vh;
-  overflow: hidden;
-}
 
-.parallax-bg {
-  background: url("Steffi&Justin-7.jpg") center center / cover no-repeat;
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 120%;   /* größer, damit wir Spielraum haben */
-  transform: translateY(-20%); 
-  will-change: transform;
-}
+    /* Portrait-Section mit Parallax */
+    .portrait-section {
+      position: relative;
+      height: 60vh;
+      overflow: hidden;
+    }
 
-.portrait-overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.35);
-}
+    .parallax-bg {
+      background: url("Steffi&Justin-7.jpg") center center / cover no-repeat;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 120%;
+      transform: translateY(0);
+      will-change: transform;
+    }
 
-.portrait-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  color: white;
-  padding: 2rem;
-}
+    .portrait-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.35);
+    }
 
+    .portrait-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: white;
+      padding: 2rem;
+    }
 
+    .portrait-content blockquote {
+      font-size: 1.6rem;
+      font-style: italic;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .portrait-content blockquote span {
+      display: block;
+      margin-top: 1rem;
+      font-size: 1rem;
+      opacity: 0.85;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Login Screen -->
+  <!-- Login Screen (derzeit deaktiviert) -->
+  <!--
   <div class="login" id="login-screen">
     <h2>Willkommen – bitte Passwort eingeben</h2>
     <input type="password" id="pw" placeholder="Passwort">
@@ -186,61 +200,61 @@
     <button onclick="checkPassword()">Login</button>
     <p id="error"></p>
   </div>
+  -->
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <img src="StefanieJustinSchriftzug.svg" alt="Stefanie & Justin Schriftzug">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf48I2QsqReb45qMzkJxMIEm3gOFlpuBEErMN1_zyM9ziW0Qw/viewform" target="_blank">
+        <button>Zu- oder Absagen</button>
+      </a>
+    </div>
+  </div>
+
+  <!-- Timetable -->
+  <section class="timetable">
+    <img src="timetable.svg" alt="Tagesablauf">
+  </section>
+
+  <!-- Zitat mit Parallax -->
+  <section class="portrait-section">
+    <div class="parallax-bg"></div>
+    <div class="portrait-overlay"></div>
+    <div class="portrait-content">
+      <blockquote>
+        „Liebe ist das Einzige, was wir wahrnehmen können, das die Dimensionen von Zeit und Raum übersteigt.“  
+        <span>– Interstellar</span>
+      </blockquote>
+    </div>
+  </section>
 
 <script>
 const passwordHash = "0ed93bf0a009d4fcdef56f82f69d4bdf6d1b78bafc33999c6acd01319f5a6c28";
 
-/*async function checkPassword() {
+/* Passwortschutz (derzeit deaktiviert)
+async function checkPassword() {
   const input = document.getElementById('pw').value;
   const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input));
   const hashArray = Array.from(new Uint8Array(hashBuffer));
   const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-  if (hashHex === passwordHash) {*/
-    loadMainPage();
-  /*} else {
+  if (hashHex === passwordHash) {
+    document.getElementById("login-screen").style.display = "none";
+    document.body.classList.add("unlocked");
+  } else {
     document.getElementById('error').textContent = "Falsches Passwort.";
   }
-}*/
+}
+*/
 
-function loadMainPage() {
-  document.body.innerHTML = `
-    <div class="hero">
-      <div class="overlay"></div>
-      <div class="hero-content">
-        <img src="StefanieJustinSchriftzug.svg" alt="Stefanie & Justin Schriftzug">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf48I2QsqReb45qMzkJxMIEm3gOFlpuBEErMN1_zyM9ziW0Qw/viewform" target="_blank">
-          <button>Zu- oder Absagen</button>
-        </a>
-      </div>
-    </div>
-
-    <section class="timetable">
-      <img src="timetable.svg" alt="Tagesablauf">
-    </section>
-    <section class="portrait-section">
-  <div class="parallax-bg"></div>
-  <div class="portrait-overlay"></div>
-  <div class="portrait-content">
-    <blockquote>
-      „Liebe ist das Einzige, was wir wahrnehmen können, das die Dimensionen von Zeit und Raum übersteigt.“  
-      <span>-Interstellar</span>
-    </blockquote>
-  </div>
-        // Parallax-Effekt
+// Parallax-Effekt
 window.addEventListener('scroll', function() {
   const parallax = document.querySelector('.parallax-bg');
-  if (!parallax) return; // nur ausführen, wenn Abschnitt existiert
+  if (!parallax) return;
   let scrollTop = window.pageYOffset;
   parallax.style.transform = 'translateY(' + scrollTop * 0.3 + 'px)';
 });
-</section>
-    <section class="timetable">
-      <img src="timetable.svg" alt="Tagesablauf">
-    </section>
-  `;
-
-}
-
 </script>
 
 </body>
