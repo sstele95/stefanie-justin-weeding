@@ -143,9 +143,10 @@
     }
     .portrait-section {
   position: relative;
-  height: 60vh; /* oder gewünschte Höhe */
-  background: url("Steffi&Justin-7.jpg") center center no-repeat;
+  height: 60vh; /* Höhe kann angepasst werden */
+  background: url("paar-portrait-sw.jpg") center center no-repeat;
   background-size: cover;
+  background-attachment: fixed; /* sorgt für edlen Parallax-Effekt */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,23 +158,31 @@
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* dunkles Overlay mit Transparenz */
+  background: rgba(0, 0, 0, 0.35); /* halbtransparentes Overlay */
 }
 
 .portrait-content {
   position: relative;
   z-index: 1;
   text-align: center;
-  padding: 1rem 2rem;
+  padding: 2rem;
+  max-width: 800px;
 }
 
-.portrait-content h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.portrait-content blockquote {
+  font-size: 1.8rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0;
 }
 
-.portrait-content p {
-  font-size: 1.1rem;
+.portrait-content blockquote span {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  opacity: 0.85;
 }
 
   </style>
