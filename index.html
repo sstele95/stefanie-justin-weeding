@@ -212,65 +212,56 @@
 }
 /* Map Style */
 .map-section {
-  background: #f1e6c9;
-  padding: 4rem 1rem;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  padding: 4rem 0;
 }
 
-.hex-map {
+.map-container {
   position: relative;
-  width: 340px;
+  width: 350px;
   aspect-ratio: 1 / 1;
-  margin: 0 auto;
-  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.3s ease;
 }
 
-.hex-map iframe {
+.map-container iframe {
   width: 100%;
   height: 100%;
+  display: block;
   border: none;
-  filter: brightness(95%) contrast(97%);
 }
 
-.hex-map:hover {
-  transform: scale(1.04);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-}
-
-/* Hover-Icon */
-.hover-pin {
+.map-hover {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  font-size: 3rem;
-  color: #d8c7a8; /* Beige Icon */
+  inset: 0;
+  background: rgba(140, 119, 96, 0.9);
   opacity: 0;
-  transition: all 0.4s ease;
-  z-index: 2;
-  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease;
 }
 
-.hex-map:hover .hover-pin {
-  transform: translate(-50%, -50%) scale(1);
+.pin-icon {
+  width: 80px;
+  height: 80px;
+  background: url('pin-icon.png') center center / contain no-repeat;
+  opacity: 0.8;
+  filter: brightness(10); /* macht das Icon weiß */
+}
+
+.map-container:hover .map-hover {
   opacity: 1;
 }
 
-/* Für Mobile */
-@media (max-width: 768px) {
-  .hex-map {
-    width: 260px;
-  }
-  .hover-pin {
-    font-size: 2.4rem;
-  }
+.map-container:hover {
+  transform: scale(1.02);
 }
-
-
-
   </style>
 </head>
 <body>
@@ -315,13 +306,19 @@
   </section>
   <!-- Veranstaltungsort -->
 <section class="map-section">
-  <div class="hex-map">
+  <div class="map-container">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2666.5455309373813!2d7.210333276913881!3d48.97292079243326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4793b1a015eef923%3A0x2ff71d3b414df568!2sCh%C3%A2teau%20Hochberg!5e0!3m2!1sde!2sde!4v1730000000000!5m2!1sde!2sde"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2683.552128908063!2d9.183220276859675!3d48.7076693713148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799c8c94b4e5e23%3A0x34b5b12ee5d4c540!2sH%C3%B6henpark%20Killesberg!5e0!3m2!1sde!2sde!4v1696412345678"
+      width="100%"
+      height="100%"
+      style="border:0;"
       allowfullscreen=""
-      loading="lazy">
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
     </iframe>
-    <div class="hover-pin">📍</div>
+    <div class="map-hover">
+      <div class="pin-icon"></div>
+    </div>
   </div>
 </section>
 
