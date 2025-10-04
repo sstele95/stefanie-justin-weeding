@@ -12,7 +12,7 @@
       padding: 0;
       font-family: 'Playfair Display', serif;
       text-align: center;
-      background: linear-gradient(180deg, #e2d4b7 0%, #d8c7a8 100%);
+      background-color: #d8c7a8;
     }
 
     /* Login-Screen */
@@ -127,7 +127,7 @@
 
     /* Timetable */
     .timetable {
-  background: linear-gradient(180deg, #e2d4b7 0%, #d8c7a8 100%);
+      background-color: #d8c7a8;
       padding: 2rem 1rem 1rem 1rem;
     }
 
@@ -202,6 +202,75 @@
     font-size: 0.8rem;
   }
 }
+    .map-section {
+  background: #f1e6c9;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.hex-map {
+  position: relative;
+  width: 320px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.hex-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: brightness(95%) contrast(95%);
+}
+
+.hex-map:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.hex-map::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(216,199,168,0); /* transparent standard */
+  transition: background 0.4s ease;
+  z-index: 1;
+}
+
+.hex-map:hover::before {
+  background: rgba(140, 119, 96, 0.9); /* Beige Overlay beim Hover */
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  color: #6d7f5f;
+  font-weight: 600;
+  background: rgba(255,255,255,0.7);
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.map-link:hover {
+  background: #d8c7a8; /* Beige Hover */
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hex-map {
+    width: 240px;
+  }
+  .map-link {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
+
 
   </style>
 </head>
@@ -245,10 +314,19 @@
       </blockquote>
     </div>
   </section>
-    <!-- Timetable -->
-  <section class="timetable">
-    <img src="timetable.svg" alt="Tagesablauf">
-  </section>
+  <!-- Veranstaltungsort -->
+<section class="map-section">
+  <div class="hex-map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2651.755830889105!2d9.993682315650574!3d48.39740097924485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479968f5e1c76e33%3A0x81a0a19bb604a7c8!2sSchloss%20Ulm!5e0!3m2!1sde!2sde!4v1696429600000!5m2!1sde!2sde"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+  <a href="https://goo.gl/maps/abcdef" target="_blank" class="map-link">
+    📍 Zum Veranstaltungsort
+  </a>
+</section>
 
 <script>
 const passwordHash = "0ed93bf0a009d4fcdef56f82f69d4bdf6d1b78bafc33999c6acd01319f5a6c28";
