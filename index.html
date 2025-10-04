@@ -262,6 +262,30 @@
 .map-container:hover {
   transform: scale(1.02);
 }
+@media (max-width: 768px) {
+  .map-container {
+    width: 250px; /* kleiner auf Tablets und Handys */
+  }
+  .pin-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  body {
+    background: url('Bilder/Bildschirmfoto 2025-10-04 um 13.01.01.png') center top / cover no-repeat fixed;
+    background-attachment: scroll; /* verhindert Ruckeln auf mobilen Geräten */
+  }
+}
+
+@media (max-width: 480px) {
+  .map-container {
+    width: 200px; /* sehr kleine Screens */
+  }
+  .pin-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
   </style>
 </head>
 <body>
