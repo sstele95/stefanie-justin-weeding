@@ -12,12 +12,15 @@
       padding: 0;
       font-family: 'Playfair Display', serif;
       text-align: center;
-      background: radial-gradient(circle at top left,
-        #e9e3cc 0%,
-        #d9cdb0 35%,
-        #cbb99a 60%,
-        #b6b09b 85%
-      );
+  background: linear-gradient(135deg,
+    #d8d1b4 0%,   /* warm beige-creme */
+    #c5b294 25%,  /* champagner-taupe */
+    #b8a27d 50%,  /* dunkleres beige */
+    #c0c7b1 75%,  /* grünlich-grau */
+    #b6b09b 100%  /* soft olive */
+  );
+  background-attachment: fixed; /* für leichtes Parallax-Gefühl */
+  background-size: cover;
     }
     body::before {
   content: "";
