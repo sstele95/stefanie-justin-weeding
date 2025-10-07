@@ -355,7 +355,7 @@
 .faq-question img {
   width: 240px;
   height: auto;
-  max-width: 90%;
+  max-width: 100%;
   display: block;
   margin: 0 auto;
 }
@@ -438,7 +438,8 @@
     height: 40px;
   }
 }
-    /* Countdown Zahlen */
+
+/* Countdown Zahlen */
 #countdown {
   display: flex;
   justify-content: center;
@@ -466,6 +467,7 @@
   font-size: 1rem;
   opacity: 0.9;
 }
+
 /* Mobile Anpassung */
 @media (max-width: 768px) {
   .time-box {
@@ -481,6 +483,7 @@
     font-size: 0.9rem;
   }
 }
+
   </style>
 </head>
 <body>
@@ -603,17 +606,17 @@
 </section>
 
     <!-- countdown mit parallax -->
-  <section class="portrait-section">
-    <div class="parallax-bg2"></div>
-    <div class="portrait-overlay"></div>
-    <div class="portrait-content">
+<section class="countdown-portrait">
+  <div class="countdown-bg"></div>
+  <div class="countdown-overlay"></div>
+  <div class="countdown-content">
     <div id="countdown">
       <div class="time-box"><span id="days">0</span><small>Tage</small></div>
       <div class="time-box"><span id="hours">0</span><small>Stunden</small></div>
       <div class="time-box"><span id="minutes">0</span><small>Minuten</small></div>
     </div>
-    </div>
-  </section>
+  </div>
+</section>
     <!-- Timetable -->
   <section class="timetable">
     <p></p>
@@ -638,7 +641,7 @@ async function checkPassword() {
 */
 
 window.addEventListener('scroll', function() {
-  const parallax = document.querySelector('.parallax-bg');
+  const parallax = document.querySelector('.parallax-bg', '.parallax-bg2');
   if (!parallax) return;
 
   const section = parallax.parentElement;
