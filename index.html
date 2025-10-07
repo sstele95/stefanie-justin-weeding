@@ -351,8 +351,9 @@
 }
 
 .faq-item.active .faq-answer {
-  max-height: 300px;
+  max-height: 100vh; /* bis zur Bildschirmhöhe */
   padding: 1rem 1.2rem;
+  transition: max-height 0.6s ease, padding 0.3s ease;
 }
 @media (max-width: 768px) {
   .faq-section {
@@ -361,8 +362,16 @@
   .faq-answer {
     font-size: 0.95rem;
   }
+}
+    .faq-question img {
+  width: 80%;
+  max-width: 320px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
   .faq-question img {
-    width: 300px; /* kleiner auf Tablets */
+    max-width: 220px;
   }
 }
 /* FAQ-Antwort Listen */
@@ -529,12 +538,12 @@
     <div class="faq-answer">
       <p>
   <ul>
-    <li>⏰ <strong>Zu spät kommen:</strong> Bitte plant genug Zeit ein – besonders für die Trauung.</li>
-    <li>📸 <strong>Während der Zeremonie fotografieren:</strong> Lasst den Moment den Profis – und genießt ihn live.</li>
-    <li>🎤 <strong>Unangekündigte Reden:</strong> Überraschungen bitte vorher kurz mit den Trauzeugen absprechen.</li>
-    <li>💌 <strong>Unangekündigte Begleitung:</strong> Bitte bringt nur Personen mit, die eingeladen sind.</li>
-    <li>💐 <strong>Blumensträuße:</strong> Bitte verzichtet auf Blumensträuße als Geschenke. Wir werden ganz viele Blumen besorgen, die Ihr im Anschluss gerne als Andenken mitnehmen könnt.</li> 
-    <li>💛 <strong>Den Moment verpassen:</strong> Atmet durch, tanzt, lacht – und genießt den Tag mit uns.</li>
+    <li><strong>Zu spät kommen:</strong> Bitte plant genug Zeit ein – besonders für die Trauung.</li>
+    <li><strong>Während der Zeremonie fotografieren:</strong> Lasst den Moment den Profis – und genießt ihn live.</li>
+    <li><strong>Unangekündigte Reden:</strong> Überraschungen bitte vorher kurz mit den Trauzeugen absprechen.</li>
+    <li><strong>Unangekündigte Begleitung:</strong> Bitte bringt nur Personen mit, die eingeladen sind.</li>
+    <li><strong>Blumensträuße:</strong> Bitte verzichtet auf Blumensträuße als Geschenke. Wir werden ganz viele Blumen besorgen, die Ihr im Anschluss gerne als Andenken mitnehmen könnt.</li> 
+    <li><strong>Den Moment verpassen:</strong> Atmet durch, tanzt, lacht – und genießt den Tag mit uns.</li>
   </ul>
       </p>
     </div>
