@@ -438,6 +438,19 @@
     font-size: 1.6rem;
   }
 }
+/* Für Tablets und Handys */
+@media (max-width: 768px) {
+  .faq-question img {
+    width: 150px; /* kleiner auf Tablets */
+  }
+}
+
+/* Für sehr kleine Bildschirme */
+@media (max-width: 480px) {
+  .faq-question img {
+    width: 120px; /* z. B. iPhones oder kleine Androids */
+  }
+}
 
 
   </style>
@@ -502,7 +515,9 @@
     </div>
   </div>
 </section>
-  <img src="FAQ.svg" alt="faq">
+  <section class="timetable">
+    <img src="FAQ.svg" alt="faq">
+  </section>
   <section class="faq-section">
   <div class="faq-item">
     <button class="faq-question">
