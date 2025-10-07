@@ -399,6 +399,35 @@
     font-size: 0.95rem;
   }
 } 
+    /* Pinterest-Link */
+.pinterest-link {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.pinterest-link img {
+  width: 50px;
+  height: 50px;
+  filter: brightness(0) invert(0.8); /* champagner/weißlich auf dunklem Hintergrund */
+  opacity: 0.85;
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+}
+
+.pinterest-link img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  filter: brightness(1) invert(0.9) sepia(0.3) saturate(1.2);
+}
+
+/* Auf kleineren Geräten etwas kleiner */
+@media (max-width: 768px) {
+  .pinterest-link img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 
 
   </style>
@@ -471,7 +500,7 @@
     <button class="faq-question">
         <img src="Transport.svg" alt="Transport"></button>
     <div class="faq-answer">
-      <p>Wir planen derzeit einen Rücktransport zu bestimmten Zeiten Richtung Bad Münder, Hameln und Emmerthal, damit Ihr zu Eurer Übernachtungsmöglichkeit gelangt.</p>
+      <p>Wir planen derzeit einen Transport zu bestimmten Zeiten Richtung Hülsede selbst sowie Bad Münder, Hameln und Emmerthal, damit Ihr zu Eurer Übernachtungsmöglichkeit gelangt.</p>
     </div>
   </div>
 
@@ -492,7 +521,15 @@
   <div class="faq-item">
     <button class="faq-question"><img src="Dresscode.svg" alt="Dresscode"></button>
     <div class="faq-answer">
-      <p></p>
+      <p>Für unsere Hochzeit wünschen wir uns vor allem, dass ihr euch ganz ihr selbst fühlt – es gibt keinen festen Dresscode. 
+        Wer jedoch Freude daran hat, sich ein wenig am Stil unseres Tages zu orientieren, darf sich gerne von unserem Motto 
+        „[Motto hier einfügen]“ inspirieren lassen. Ein paar Ideen und Farben, die wunderbar dazu passen, findet ihr auf unserem 
+        Pinterest-Board: </p>
+      <div class="pinterest-link">
+  <a href="https://pinterest.com" target="_blank" aria-label="Pinterest öffnen">
+    <img src="pinterest.svg" alt="Pinterest Icon">
+  </a>
+</div>
     </div>
   </div>
 
