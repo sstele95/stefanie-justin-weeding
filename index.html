@@ -617,32 +617,27 @@ async function checkPassword() {
 }
 */
 
+// Parallax-Effekt für alle Hintergrund-Elemente (z. B. .parallax-bg, .parallax-bg2, .countdown-bg)
 window.addEventListener('scroll', function() {
-  const parallax = document.querySelectorAll('.parallax-bg', '.parallax-bg2');
-  if (!parallax) return;
+  const parallaxElements = document.querySelectorAll('.parallax-bg, .parallax-bg2, .countdown-bg');
+  
   parallaxElements.forEach(parallax => {
-  const section = parallax.parentElement;
-  const sectionTop = section.offsetTop;
-  const sectionHeight = section.offsetHeight;
-  const scrollY = window.pageYOffset;
-  const windowHeight = window.innerHeight;
+    const section = parallax.parentElement;
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    const scrollY = window.pageYOffset;
+    const windowHeight = window.innerHeight;
 
-  // Scroll-Fortschritt (0 = Section betritt Sichtfeld, 1 = verlässt es)
-  const progress = (scrollY + windowHeight - sectionTop) / (sectionHeight + windowHeight);
+    // Scroll-Fortschritt (0 = Section betritt Sichtfeld, 1 = verlässt es)
+    const progress = (scrollY + windowHeight - sectionTop) / (sectionHeight + windowHeight);
+    const bounded = Math.min(Math.max(progress, 0), 1);
+    const maxShift = parallax.offsetHeight - sectionHeight;
+    const translateY = -maxShift * (1 - bounded);
 
-  // Begrenzen auf 0–1
-  const bounded = Math.min(Math.max(progress, 0), 1);
-
-  // Maximaler Verschiebeweg (Bildhöhe - Fensterhöhe)
-  const maxShift = parallax.offsetHeight - sectionHeight;
-
-  // Start unten (0), Ende oben (-maxShift)
-  const translateY = -maxShift * (1 - bounded);
-
-
-  parallax.style.transform = `translateY(${translateY}px)`;
-    });
+    parallax.style.transform = `translateY(${translateY}px)`;
+  });
 });
+
   // FAQ Toggle
 document.querySelectorAll('.faq-question').forEach(button => {
   button.addEventListener('click', () => {
