@@ -375,69 +375,36 @@
     font-size: 0.95rem;
   }
 }
-    /* Hochzeits-Don'ts */
-.donts-section {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(6px);
-  margin: 4rem auto;
-  padding: 3rem 2rem;
-  border-radius: 20px;
-  width: 90%;
-  max-width: 800px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  text-align: left;
-}
-
-.donts-section h2 {
-  text-align: center;
-  font-size: 2rem;
-  color: #6d7f5f;
-  margin-bottom: 2rem;
-  letter-spacing: 1px;
-}
-
-.donts-list {
+/* FAQ-Antwort Listen */
+.faq-answer ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
-  line-height: 1.7;
+  padding-left: 0;
+  margin: 1rem 0;
+  text-align: left; /* linksbündig für bessere Lesbarkeit */
 }
 
-.donts-list li {
-  margin-bottom: 1rem;
-  padding: 1rem 1.2rem;
-  background: rgba(241, 230, 201, 0.5);
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  font-size: 1.05rem;
+.faq-answer li {
+  position: relative;
+  padding-left: 2.2rem; /* Platz für das Icon */
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
   color: #5c4b3e;
-  transition: transform 0.3s ease, background 0.3s ease;
+  font-size: 1rem;
 }
 
-.donts-list li:hover {
-  background: rgba(217, 197, 161, 0.6);
-  transform: translateY(-2px);
-}
-
-.donts-list strong {
-  color: #8c7760;
-}
-
-/* Mobile Anpassung */
+/* Auf mobilen Geräten etwas kleiner */
 @media (max-width: 768px) {
-  .donts-section {
-    padding: 2rem 1rem;
-  }
-
-  .donts-list li {
+  .faq-answer li {
+    padding-left: 1.8rem;
     font-size: 0.95rem;
-    padding: 0.8rem 1rem;
   }
 
-  .donts-section h2 {
-    font-size: 1.6rem;
+  .faq-answer li::before {
+    width: 1rem;
+    height: 1rem;
+    top: 0.25rem;
   }
-}
+} 
 /* Für Tablets und Handys */
 @media (max-width: 768px) {
   .faq-question img {
@@ -546,7 +513,7 @@
     </button>
     <div class="faq-answer">
       <p>
-  <ul class="donts-list">
+  <ul>
     <li>⏰ <strong>Zu spät kommen:</strong> Bitte plant genug Zeit ein – besonders für die Trauung.</li>
     <li>📸 <strong>Während der Zeremonie fotografieren:</strong> Lasst den Moment den Profis – und genießt ihn live.</li>
     <li>🎤 <strong>Unangekündigte Reden:</strong> Überraschungen bitte vorher kurz mit den Trauzeugen absprechen.</li>
