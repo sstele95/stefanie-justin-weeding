@@ -296,6 +296,86 @@
     height: 50px;
   }
 }
+    /* FAQ Section */
+.faq-section {
+  background: rgba(241, 230, 201, 0.6);
+  backdrop-filter: blur(6px);
+  margin: 3rem auto;
+  padding: 3rem 1rem;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+}
+
+.faq-section h2 {
+  font-size: 2rem;
+  color: #6d7f5f;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.faq-item {
+  margin-bottom: 1rem;
+  border-radius: 15px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.4);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-2px);
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1.2rem;
+  color: #8c7760;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+  color: #a97c50;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  background: rgba(255, 255, 255, 0.3);
+  color: #5c4b3e;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  padding: 1rem 1.2rem;
+}
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 2rem 1rem;
+  }
+  .faq-question {
+    font-size: 1rem;
+  }
+  .faq-answer {
+    font-size: 0.95rem;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -445,6 +525,19 @@ window.addEventListener('scroll', function() {
 
   parallax.style.transform = `translateY(${translateY}px)`;
 });
+  // FAQ Toggle
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', () => {
+    const item = button.parentElement;
+    item.classList.toggle('active');
+    
+    // Optional: andere schließen
+    document.querySelectorAll('.faq-item').forEach(other => {
+      if (other !== item) other.classList.remove('active');
+    });
+  });
+});
+
 
 
 
