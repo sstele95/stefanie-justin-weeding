@@ -643,9 +643,9 @@ async function checkPassword() {
 */
 
 window.addEventListener('scroll', function() {
-  const parallax = document.querySelector('.parallax-bg', '.parallax-bg2');
+  const parallax = document.querySelectorAll('.parallax-bg', '.parallax-bg2');
   if (!parallax) return;
-
+  parallaxElements.forEach(parallax => {
   const section = parallax.parentElement;
   const sectionTop = section.offsetTop;
   const sectionHeight = section.offsetHeight;
@@ -666,6 +666,7 @@ window.addEventListener('scroll', function() {
 
 
   parallax.style.transform = `translateY(${translateY}px)`;
+    });
 });
   // FAQ Toggle
 document.querySelectorAll('.faq-question').forEach(button => {
