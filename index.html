@@ -307,7 +307,6 @@
   }
 }
     /* FAQ Section */
-/* FAQ Section */
 .faq-section {
   background: rgba(241, 230, 201, 0.6);
   backdrop-filter: blur(6px);
@@ -319,7 +318,13 @@
   box-shadow: 0 6px 25px rgba(0,0,0,0.1);
 }
 
-/* Einzelnes FAQ-Element */
+.faq-section h2 {
+  font-size: 2rem;
+  color: #6d7f5f;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
 .faq-item {
   margin-bottom: 1rem;
   border-radius: 15px;
@@ -333,79 +338,49 @@
   transform: translateY(-2px);
 }
 
-/* Frage-Button (nur Icons) */
 .faq-question {
-  width: 800px;
-  height: 80px;
+  width: 100%;
+  text-align: left;
   background: none;
   border: none;
   outline: none;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1.2rem;
+  color: #8c7760;
   cursor: pointer;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 0;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 .faq-question:hover {
-  background: rgba(255,255,255,0.5);
+  color: #a97c50;
 }
 
-/* Alle Icons gleich skalieren */
-.faq-question img {
-  width: 240px;
-  height: auto;
-  max-width: 100%;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Mobile Version – kleinere Icons */
-@media (max-width: 768px) {
-  .faq-question img {
-    width: 230px;
-  }
-}
-
-/* Antwortbereich */
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(-5px);
-  transition: max-height 0.6s ease, opacity 0.5s ease, transform 0.4s ease, padding 0.3s ease;
+  transition: max-height 0.4s ease, padding 0.3s ease;
   background: rgba(255, 255, 255, 0.3);
   color: #5c4b3e;
   font-size: 1rem;
-  line-height: 1.6;
-}
-
-/* Sichtbare Antwort */
-.faq-item.active .faq-answer {
-  max-height: 1000px; /* groß genug für Don’ts */
-  opacity: 1;
-  transform: translateY(0);
-  padding: 1rem 1.2rem 1.5rem;
-}
-
-/* Listen in Antworten */
-.faq-answer ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 1rem 0;
-  text-align: left;
-}
-
-.faq-answer li {
-  margin-bottom: 0.8rem;
   line-height: 1.5;
-  color: #5c4b3e;
-  font-size: 1rem;
 }
 
-/* Mobile Textanpassung */
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  padding: 1rem 1.2rem;
+}
 @media (max-width: 768px) {
+  .faq-section {
+    padding: 2rem 1rem;
+  }
+  .faq-question {
+    font-size: 1rem;
+  }
   .faq-answer {
     font-size: 0.95rem;
   }
