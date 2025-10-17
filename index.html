@@ -10,26 +10,26 @@
     body, html {
       margin: 0;
       padding: 0;
-  font-style: italic;
+      font-style: italic;
       text-align: center;
-  background: linear-gradient(135deg,
-    #d8d1b4 0%,   /* warm beige-creme */
-    #c5b294 25%,  /* champagner-taupe */
-    #b8a27d 50%,  /* dunkleres beige */
-    #c0c7b1 75%,  /* grünlich-grau */
-    #b6b09b 100%  /* soft olive */
-  );
-  background-attachment: fixed; /* für leichtes Parallax-Gefühl */
-  background-size: cover;
+      background: linear-gradient(135deg,
+        #d8d1b4 0%,   /* warm beige-creme */
+        #c5b294 25%,  /* champagner-taupe */
+        #b8a27d 50%,  /* dunkleres beige */
+        #c0c7b1 75%,  /* grünlich-grau */
+        #b6b09b 100%  /* soft olive */
+      );
+      background-attachment: fixed; /* für leichtes Parallax-Gefühl */
+      background-size: cover;
     }
     body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(255, 255, 255, 0.2); /* oder rgba(0,0,0,0.05) */
-  z-index: -1;
-}
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255, 255, 255, 0.2); /* oder rgba(0,0,0,0.05) */
+      z-index: -1;
+    }
 
     /* Login-Screen */
     .login {
@@ -158,32 +158,32 @@
     }
 
     /* Portrait-Section mit Parallax */
-.portrait-section {
-  position: relative;
-  height: 40vh;
-  overflow: hidden;
-}
+    .portrait-section {
+      position: relative;
+      height: 40vh;
+      overflow: hidden;
+    }
 
     .parallax-bg {
-  background: url("Steffi&Justin-7.jpg") center center / cover no-repeat;
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 200%; 
-  transform: translateY(0);
-  will-change: transform;
-  z-index: 0; /* hinter den Overlay und Content */
-}
-        .parallax-bg2 {
-  background: url("Steffi&Justin-17.jpg") center center / cover no-repeat;
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 200%; 
-  transform: translateY(0);
-  will-change: transform;
-  z-index: 0; /* hinter den Overlay und Content */
-}
+      background: url("Steffi&Justin-7.jpg") center center / cover no-repeat;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 200%; 
+      transform: translateY(0);
+      will-change: transform;
+      z-index: 0; /* hinter den Overlay und Content */
+    }
+    .parallax-bg2 {
+      background: url("Steffi&Justin-17.jpg") center center / cover no-repeat;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 200%; 
+      transform: translateY(0);
+      will-change: transform;
+      z-index: 0; /* hinter den Overlay und Content */
+    }
 
 
     .portrait-overlay {
@@ -195,313 +195,320 @@
       z-index: 1;
     }
 
-.portrait-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  text-align: center;
-  color: white;
-  width: 90%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  line-height: 1.4;
-}
+    .portrait-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      text-align: center;
+      color: white;
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      line-height: 1.4;
+    }
 
-.portrait-content blockquote {
-  font-size: 1.8rem;
-  font-style: italic;
-  line-height: 1.4;
-  margin: 0;
-}
+    .portrait-content blockquote {
+      font-size: 1.8rem;
+      font-style: italic;
+      line-height: 1.4;
+      margin: 0;
+    }
 
-.portrait-content blockquote span {
-  display: block;
-  margin-top: 1rem;
-  font-size: 1rem;
-  opacity: 0.85;
-}
+    .portrait-content blockquote span {
+      display: block;
+      margin-top: 1rem;
+      font-size: 1rem;
+      opacity: 0.85;
+    }
 
-/* Responsive Anpassung */
-@media (max-width: 768px) {
-  .portrait-content blockquote {
-    font-size: 1rem;  /* kleiner für Tablets/Handys */
-    line-height: 1.3;
-  }
+    /* Responsive Anpassung */
+    @media (max-width: 768px) {
+      .portrait-content blockquote {
+        font-size: 1rem;  /* kleiner für Tablets/Handys */
+        line-height: 1.3;
+      }
 
-  .portrait-content blockquote span {
-    font-size: 0.8rem;
-  }
-}
-/* Map Style */
-.map-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: transparent;
-  padding: 2rem 0;
-}
+      .portrait-content blockquote span {
+        font-size: 0.8rem;
+      }
+    }
+    /* Map Style */
+    .map-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      padding: 2rem 0;
+    }
 
-.map-container {
-  position: relative;
-  width: 350px;
-  aspect-ratio: 1 / 1;
-  clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease;
-}
+    .map-container {
+      position: relative;
+      width: 350px;
+      aspect-ratio: 1 / 1;
+      clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
 
-.map-container iframe {
-  width: 100%;
-  height: 100%;
-  display: block;
-  border: none;
-}
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: none;
+    }
 
-.map-hover {
-  position: absolute;
-  inset: 0;
-  background: rgba(140, 119, 96, 0.9);
-  opacity: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.4s ease;
-}
+    .map-hover {
+      position: absolute;
+      inset: 0;
+      background: rgba(140, 119, 96, 0.9);
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s ease;
+    }
 
-.pin-icon {
-  width: 80px;
-  height: 80px;
-  background: url('pin.png') center center / contain no-repeat;
-  opacity: 0.8;
-  filter: brightness(10); /* macht das Icon weiß */
-}
+    .pin-icon {
+      width: 80px;
+      height: 80px;
+      background: url('pin.png') center center / contain no-repeat;
+      opacity: 0.8;
+      filter: brightness(10); /* macht das Icon weiß */
+    }
 
-.map-container:hover .map-hover {
-  opacity: 1;
-}
+    .map-container:hover .map-hover {
+      opacity: 1;
+    }
 
-.map-container:hover {
-  transform: scale(1.02);
-}
-@media (max-width: 768px) {
-  .map-container {
-    width: 250px; /* kleiner auf Tablets und Handys */
-  }
-  .pin-icon {
-    width: 60px;
-    height: 60px;
-  }
-}
+    .map-container:hover {
+      transform: scale(1.02);
+    }
+    @media (max-width: 768px) {
+      .map-container {
+        width: 250px; /* kleiner auf Tablets und Handys */
+      }
+      .pin-icon {
+        width: 60px;
+        height: 60px;
+      }
+    }
 
-@media (max-width: 480px) {
-  .map-container {
-    width: 200px; /* sehr kleine Screens */
-  }
-  .pin-icon {
-    width: 50px;
-    height: 50px;
-  }
-}
+    @media (max-width: 480px) {
+      .map-container {
+        width: 200px; /* sehr kleine Screens */
+      }
+      .pin-icon {
+        width: 50px;
+        height: 50px;
+      }
+    }
     /* FAQ Section */
-.faq-section {
-  background: rgba(241, 230, 201, 0.6);
-  backdrop-filter: blur(6px);
-  margin: 3rem auto;
-  padding: 3rem 1rem;
-  border-radius: 20px;
-  width: 90%;
-  max-width: 800px;
-  box-shadow: 0 6px 25px rgba(0,0,0,0.1);
-}
+    .faq-section {
+      background: rgba(241, 230, 201, 0.6);
+      backdrop-filter: blur(6px);
+      margin: 3rem auto;
+      padding: 3rem 1rem;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+    }
 
-.faq-section h2 {
-  font-size: 2rem;
-  color: #6d7f5f;
-  margin-bottom: 2rem;
-  letter-spacing: 1px;
-}
+    .faq-section h2 {
+      font-size: 2rem;
+      color: #6d7f5f;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+    }
 
-.faq-item {
-  margin-bottom: 1rem;
-  border-radius: 15px;
-  overflow: hidden;
-  background: rgba(255,255,255,0.4);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
-}
+    .faq-item {
+      margin-bottom: 1rem;
+      border-radius: 15px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.4);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
 
-.faq-item:hover {
-  transform: translateY(-2px);
-}
+    .faq-item:hover {
+      transform: translateY(-2px);
+    }
 
-.faq-question {
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  outline: none;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  padding: 1.5rem 0.5rem;
-  color: #8c7760;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: color 0.3s ease;
-}
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      outline: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 1.5rem 0.5rem;
+      color: #8c7760;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
 
-.faq-question:hover {
-  color: #a97c50;
-}
+    .faq-question:hover {
+      color: #a97c50;
+    }
 
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-  background: rgba(255, 255, 255, 0.3);
-  color: #5c4b3e;
-  font-size: 1rem;
-  line-height: 1.5;
-}
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      background: rgba(255, 255, 255, 0.3);
+      color: #5c4b3e;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
 
-.faq-item.active .faq-answer {
-  max-height: 1000px;
-  padding: 1rem 1.2rem;
-}
-/* Listen in Antworten */ 
-.faq-answer ul { 
-  list-style: none; 
-  padding-left: 0; 
-  margin: 1rem 0; 
-  text-align: left; 
-} 
-.faq-answer li { 
-  margin-bottom: 0.8rem; 
-  line-height: 1.5; 
-  color: #5c4b3e; 
-  font-size: 1rem; 
-}
-@media (max-width: 768px) {
-  .faq-section {
-    padding: 2rem 1rem;
-  }
-  .faq-question img{
-    width: 280px;
-  }
-  .faq-answer {
-    font-size: 0.95rem;
-  }
-  .faq-answer img{
-    width: 280px;
-  }
-}
-.faq-answer .pin-small {
-  width: 22px;
-  height: 22px;
-  vertical-align: text-bottom;  /* schöne Ausrichtung zur Textzeile */
-  margin-left: 0.4rem;
-  object-fit: contain;
-  filter: brightness(0) invert(0.75); /* optisch an deine FAQ-Icons angepasst */
-  opacity: 0.85;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.faq-answer a:hover .pin-small {
-  opacity: 1;
-  transform: translateY(-1px);
-}
-
-/* Pin auch auf kleinen Screens klein halten (überschreibt deine 280px-Regel) */
-@media (max-width: 768px) {
-  .faq-answer .pin-small {
-    width: 20px;
-    height: 20px;
-  }
-}
+    .faq-item.active .faq-answer {
+      max-height: 1000px;
+      padding: 1rem 1.2rem;
+    }
+    /* Listen in Antworten */ 
+    .faq-answer ul { 
+      list-style: none; 
+      padding-left: 0; 
+      margin: 1rem 0; 
+      text-align: left; 
+    } 
+    .faq-answer li { 
+      margin-bottom: 0.8rem; 
+      line-height: 1.5; 
+      color: #5c4b3e; 
+      font-size: 1rem; 
+    }
+    @media (max-width: 768px) {
+      .faq-section {
+        padding: 2rem 1rem;
+      }
+      .faq-question img{
+        width: 280px;
+      }
+      .faq-answer {
+        font-size: 0.95rem;
+      }
+      .faq-answer img{
+        width: 280px;
+      }
+    }
 
     /* Pinterest-Link */
-.pinterest-link {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: center;
-}
+    .pinterest-link {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
 
-.pinterest-link img {
-  width: 50px;
-  height: 50px;
-  filter: brightness(0) invert(0.8); /* champagner/weißlich auf dunklem Hintergrund */
-  opacity: 0.85;
-  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
-}
+    .pinterest-link img {
+      width: 50px;
+      height: 50px;
+      filter: brightness(0) invert(0.8); /* champagner/weißlich auf dunklem Hintergrund */
+      opacity: 0.85;
+      transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+    }
 
-.pinterest-link img:hover {
-  transform: scale(1.1);
-  opacity: 1;
-  filter: brightness(1) invert(0.9) sepia(0.3) saturate(1.2);
-}
+    .pinterest-link img:hover {
+      transform: scale(1.1);
+      opacity: 1;
+      filter: brightness(1) invert(0.9) sepia(0.3) saturate(1.2);
+    }
 
-/* Auf kleineren Geräten etwas kleiner */
-@media (max-width: 768px) {
-  .pinterest-link img {
-    width: 40px;
-    height: 40px;
-  }
-}
+    /* Auf kleineren Geräten etwas kleiner */
+    @media (max-width: 768px) {
+      .pinterest-link img {
+        width: 40px;
+        height: 40px;
+      }
+    }
 
-/* Countdown Zahlen */
-#countdown {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
+    /* Countdown Zahlen */
+    #countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
 
-.time-box {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 1.2rem 2rem;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  min-width: 100px;
-}
+    .time-box {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 1.2rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      min-width: 100px;
+    }
 
-.time-box span {
-  display: block;
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 1;
-}
+    .time-box span {
+      display: block;
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1;
+    }
 
-.time-box small {
-  display: block;
-  font-size: 0.5rem;
-  opacity: 0.9;
-}
+    .time-box small {
+      display: block;
+      font-size: 0.5rem;
+      opacity: 0.9;
+    }
 
-/* Mobile Anpassung */
-@media (max-width: 768px) {
-  #countdown {
-    gap: 0.6rem;
-  }
-  .time-box {
-    min-width: 70px;
-    padding: 1rem;
-  }
+    /* Mobile Anpassung */
+    @media (max-width: 768px) {
+      #countdown {
+        gap: 0.6rem;
+      }
+      .time-box {
+        min-width: 70px;
+        padding: 1rem;
+      }
 
-  .time-box span {
-    font-size: 2.2rem;
-  }
+      .time-box span {
+        font-size: 2.2rem;
+      }
 
-  .time-box small {
-    font-size: 0.9rem;
-  }
-}
+      .time-box small {
+        font-size: 0.9rem;
+      }
+    }
 
+    /* ===== PIN-ANPASSUNGEN (NEU) ===== */
+    /* Pin-Link in eigener Zeile */
+    .faq-answer a.pin-link {
+      display: block;         /* neue Zeile */
+      margin-top: 0.6rem;     /* Abstand zum Text */
+    }
+
+    /* gut sichtbares Pin-Symbol in Schwarz */
+    .faq-answer img.pin-small {
+      width: 32px !important;   /* größer */
+      height: 32px !important;
+      object-fit: contain;
+      vertical-align: middle;
+      filter: brightness(0);     /* macht das Icon schwarz */
+      opacity: 1;
+      transition: transform 0.15s ease;
+    }
+
+    .faq-answer a.pin-link:hover img.pin-small {
+      transform: translateY(-1px);
+    }
+
+    /* mobil minimal kleiner */
+    @media (max-width: 768px) {
+      .faq-answer img.pin-small {
+        width: 28px !important;
+        height: 28px !important;
+      }
+    }
+    /* ===== ENDE PIN-ANPASSUNGEN ===== */
   </style>
 </head>
 <body>
@@ -582,11 +589,11 @@
   <div class="faq-item">
     <button class="faq-question"><img src="Ubernachtung.svg" alt="Ubernachtung"></button>
     <div class="faq-answer">
-      <p>Es gibt Übernachtungsmöglichkeiten im Elternhaus, aber auch in Hotels und Pensionen in näherer Umgebung. Hier haben wir eine Auswahl an Hotels für Euch, die wir anfahren:
-        <a href="https://maps.app.goo.gl/MP5i1h2dNTLVxPWv7" target="_blank" aria-label="Hotels öffnen">
-          <img class="pin-small" src="pin.png" alt="Pin Icon">
-        </a>
-      </p>
+      <p>Es gibt Übernachtungsmöglichkeiten im Elternhaus, aber auch in Hotels und Pensionen in näherer Umgebung. Hier haben wir eine Auswahl an Hotels für Euch, die wir anfahren:</p>
+      <!-- ERSETZT: Pin-Link jetzt in neuer Zeile, größer & schwarz -->
+      <a class="pin-link" href="https://maps.app.goo.gl/MP5i1h2dNTLVxPWv7" target="_blank" aria-label="Hotels öffnen">
+        <img class="pin-small" src="pin.png" alt="Pin Icon">
+      </a>
     </div>
   </div>
 
@@ -605,26 +612,26 @@
         „Modern Classic im Champagnernebel“ inspirieren lassen. Ein paar Ideen und Farben, die wunderbar dazu passen, findet ihr auf unserem 
         Pinterest-Board: </p>
       <div class="pinterest-link">
-  <a href="https://pin.it/65cOxmAE3" target="_blank" aria-label="Pinterest öffnen">
-    <img src="pinterest.svg" alt="Pinterest Icon">
-  </a>
-</div>
+        <a href="https://pin.it/65cOxmAE3" target="_blank" aria-label="Pinterest öffnen">
+          <img src="pinterest.svg" alt="Pinterest Icon">
+        </a>
+      </div>
     </div>
   </div>
 
-      <div class="faq-item">
+  <div class="faq-item">
     <button class="faq-question"><img src="Donts.svg" alt="Donts">
     </button>
     <div class="faq-answer">
       <p>
-  <ul>
-    <li><strong>Zu spät kommen:</strong> Bitte plant genug Zeit ein – besonders für die Trauung.</li>
-    <li><strong>Während der Zeremonie fotografieren:</strong> Lasst den Moment den Profis – und genießt ihn live.</li>
-    <li><strong>Unangekündigte Reden:</strong> Überraschungen bitte vorher kurz mit den Trauzeugen absprechen.</li>
-    <li><strong>Unangekündigte Begleitung:</strong> Bitte bringt nur Personen mit, die eingeladen sind.</li>
-    <li><strong>Blumensträuße:</strong> Bitte verzichtet auf Blumensträuße als Geschenke. Wir werden ganz viele Blumen besorgen, die Ihr im Anschluss gerne als Andenken mitnehmen könnt.</li> 
-    <li><strong>Den Moment verpassen:</strong> Atmet durch, tanzt, lacht – und genießt den Tag mit uns.</li>
-  </ul>
+      <ul>
+        <li><strong>Zu spät kommen:</strong> Bitte plant genug Zeit ein – besonders für die Trauung.</li>
+        <li><strong>Während der Zeremonie fotografieren:</strong> Lasst den Moment den Profis – und genießt ihn live.</li>
+        <li><strong>Unangekündigte Reden:</strong> Überraschungen bitte vorher kurz mit den Trauzeugen absprechen.</li>
+        <li><strong>Unangekündigte Begleitung:</strong> Bitte bringt nur Personen mit, die eingeladen sind.</li>
+        <li><strong>Blumensträuße:</strong> Bitte verzichtet auf Blumensträuße als Geschenke. Wir werden ganz viele Blumen besorgen, die Ihr im Anschluss gerne als Andenken mitnehmen könnt.</li> 
+        <li><strong>Den Moment verpassen:</strong> Atmet durch, tanzt, lacht – und genießt den Tag mit uns.</li>
+      </ul>
       </p>
     </div>
   </div>
@@ -635,14 +642,14 @@
     <div class="parallax-bg2"></div>
     <div class="portrait-overlay"></div>
     <div class="portrait-content">
-    <img src="Countdown.svg" alt="Countdown">
-    <div id="countdown">
-      <div class="time-box"><span id="days">0</span><small>Tage</small></div>
-      <div class="time-box"><span id="hours">0</span><small>Stunden</small></div>
-      <div class="time-box"><span id="minutes">0</span><small>Minuten</small></div>
+      <img src="Countdown.svg" alt="Countdown">
+      <div id="countdown">
+        <div class="time-box"><span id="days">0</span><small>Tage</small></div>
+        <div class="time-box"><span id="hours">0</span><small>Stunden</small></div>
+        <div class="time-box"><span id="minutes">0</span><small>Minuten</small></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
     <!-- Timetable -->
   <section class="timetable">
     <p></p>
