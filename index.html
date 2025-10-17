@@ -401,6 +401,29 @@
     width: 280px;
   }
 }
+.faq-answer .pin-small {
+  width: 22px;
+  height: 22px;
+  vertical-align: text-bottom;  /* schöne Ausrichtung zur Textzeile */
+  margin-left: 0.4rem;
+  object-fit: contain;
+  filter: brightness(0) invert(0.75); /* optisch an deine FAQ-Icons angepasst */
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.faq-answer a:hover .pin-small {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* Pin auch auf kleinen Screens klein halten (überschreibt deine 280px-Regel) */
+@media (max-width: 768px) {
+  .faq-answer .pin-small {
+    width: 20px;
+    height: 20px;
+  }
+}
 
     /* Pinterest-Link */
 .pinterest-link {
@@ -560,9 +583,9 @@
     <button class="faq-question"><img src="Ubernachtung.svg" alt="Ubernachtung"></button>
     <div class="faq-answer">
       <p>Es gibt Übernachtungsmöglichkeiten im Elternhaus, aber auch in Hotels und Pensionen in näherer Umgebung. Hier haben wir eine Auswahl an Hotels für Euch, die wir anfahren:
-            <a href="https://maps.app.goo.gl/MP5i1h2dNTLVxPWv7" target="_blank" aria-label="Hotels öffnen">
-              <img src="pin.png" alt="Pin Icon">
-            </a>
+        <a href="https://maps.app.goo.gl/MP5i1h2dNTLVxPWv7" target="_blank" aria-label="Hotels öffnen">
+          <img class="pin-small" src="pin.png" alt="Pin Icon">
+        </a>
       </p>
     </div>
   </div>
