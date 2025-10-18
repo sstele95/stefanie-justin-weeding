@@ -116,18 +116,19 @@
     }
 
     /* Button im Hero */
-    .hero-content a button {
-      margin-top: 2rem;
-      background: rgba(255, 255, 255, 0.7); /* Weiß transparent */
-      color: #6d7f5f; /* Grünton passend zur Palette */
-      border: none;
-      border-radius: 35px;
-      cursor: pointer;
-      padding: 1rem 2.4rem;
-      font-size: 1.3rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
+    $1
+
+/* Hinweis unter dem RSVP-Button */
+.rsvp-note {
+  margin-top: 0.6rem;
+  font-style: normal;
+  font-size: 0.95rem;
+  color: #f1e6c9;
+  opacity: 0.95;
+}
+@media (max-width: 768px) {
+  .rsvp-note { font-size: 0.9rem; }
+}
 
     .hero-content a button:hover {
       background: rgba(140, 119, 96, 0.9);
@@ -488,8 +489,8 @@
 
     /* gut sichtbares Pin-Symbol in Schwarz */
     .faq-answer img.pin-small {
-      width: 40px !important;   /* größer */
-      height: 40px !important;
+      width: 32px !important;   /* größer */
+      height: 32px !important;
       object-fit: contain;
       vertical-align: middle;
       filter: brightness(0);     /* macht das Icon schwarz */
@@ -504,12 +505,27 @@
     /* mobil minimal kleiner */
     @media (max-width: 768px) {
       .faq-answer img.pin-small {
-        width: 40px !important;
-        height: 40px !important;
+        width: 28px !important;
+        height: 28px !important;
       }
     }
     /* ===== ENDE PIN-ANPASSUNGEN ===== */
-  </style>
+    /* Hinweis unter dem RSVP-Button */
+  .rsvp-note {
+    margin-top: 0.6rem;
+    font-size: 0.95rem;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.7);
+    color: #6d7f5f;
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 12px;
+    line-height: 1.2;
+  }
+  @media (max-width: 768px) {
+    .rsvp-note { font-size: 0.9rem; }
+  }
+</style>
 </head>
 <body>
 
@@ -527,11 +543,9 @@
   <!-- Hero -->
   <div class="hero">
     <div class="overlay"></div>
-    <div class="hero-content">
-      <img src="StefanieJustinSchriftzug.svg" alt="Stefanie & Justin Schriftzug">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf48I2QsqReb45qMzkJxMIEm3gOFlpuBEErMN1_zyM9ziW0Qw/viewform" target="_blank">
-        <button>Zu- oder Absagen</button>
-      </a>
+    $1
+      <p class="rsvp-note">Korrektur: Zu- oder Absagen bis zum 31.12.2025</p>
+        <p class="rsvp-note">Korrektur: Zu- oder Absagen bis zum 31.12.2025</p>
     </div>
   </div>
 
@@ -580,8 +594,9 @@
     <button class="faq-question">
         <img src="Transport.svg" alt="Transport"></button>
     <div class="faq-answer">
-      <p>Wir planen derzeit einen Transport von Eurer Übernachtsmöglichkeit <-> Hülsede (Route folgt). Bitte sagt uns rechtzeitig Bescheid, damit wir passende "Haltestellen" für Euch organisieren können.
+      <p>Wir planen derzeit einen Transport von Eurer Übernachtsmöglichkeit <-> Hülsede entlang der folgenden Route. Bitte sagt uns rechtzeitig Bescheid, damit wir passende "Haltestellen" für Euch organisieren können.
       </p>
+      <p><img src="route.png" alt="route"></p>
     </div>
   </div>
 
@@ -606,7 +621,9 @@
   <div class="faq-item">
     <button class="faq-question"><img src="Dresscode.svg" alt="Dresscode"></button>
     <div class="faq-answer">
-      <p>Für unsere Hochzeit wünschen wir uns einen festlichen, eleganten Look (Abendgarderobe/Cocktail). Ein paar Ideen und Farben, die wunderbar zum Stil unserer Hochzeit passen, findet ihr auf diesem 
+      <p>Für unsere Hochzeit wünschen wir uns vor allem, dass Ihr euch ganz Ihr selbst fühlt – es gibt keinen festen Dresscode. 
+        Wer jedoch Freude daran hat, sich ein wenig am Stil unseres Tages zu orientieren, darf sich gerne von unserem Motto 
+        „Modern Classic im Champagnernebel“ inspirieren lassen. Ein paar Ideen und Farben, die wunderbar dazu passen, findet ihr auf unserem 
         Pinterest-Board: </p>
       <div class="pinterest-link">
         <a href="https://pin.it/65cOxmAE3" target="_blank" aria-label="Pinterest öffnen">
