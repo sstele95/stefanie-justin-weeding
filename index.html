@@ -518,16 +518,16 @@
       opacity: 0.95;
     }
     /* ===== Ende Hinweis ===== */
-    /* ===== Trauzeugen-Section (neu) ===== */
+      /* ===== Trauzeugen-Section (neu) ===== */
   .witnesses-section {
-    background: rgba(241, 230, 201, 0.6);
-    backdrop-filter: blur(6px);
+    /* keine Hintergründe/Boxen */
+    background: transparent;
+    backdrop-filter: none;
     margin: 3rem auto 4rem;
-    padding: 2.5rem 1rem;
-    border-radius: 20px;
+    padding: 1rem 0;
     width: 90%;
     max-width: 900px;
-    box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+    box-shadow: none;
   }
   .witnesses-title {
     font-size: 1.8rem;
@@ -538,20 +538,20 @@
   .witnesses-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem;
+    gap: 2rem 3rem;
     align-items: start;
     justify-items: center;
   }
   .witness-card {
+    /* nur Bild + Text, keine Kartenoptik */
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background: rgba(255,255,255,0.4);
-    border-radius: 18px;
-    padding: 1.25rem 1rem 1.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    width: 100%;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    width: auto;
     max-width: 360px;
   }
   .witness-photo {
@@ -559,9 +559,9 @@
     height: 160px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    /* nur dezente Abhebung über weißen Rand – wenn nicht gewünscht, Zeile löschen */
     border: 4px solid rgba(255,255,255,0.7);
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
   }
   .witness-name {
     font-family: 'Playfair Display', serif;
@@ -582,17 +582,16 @@
     text-decoration: none;
     color: #6d7f5f;
     font-weight: 600;
-    background: rgba(255,255,255,0.6);
-    padding: .45rem .7rem;
-    border-radius: 12px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    transition: transform .15s ease, background .2s ease;
+    padding: 0;           /* kein Hintergrundrahmen */
+    border-radius: 0;
+    box-shadow: none;
+    transition: text-decoration-color .15s ease;
   }
-  .witness-phone a:hover { transform: translateY(-1px); background: rgba(255,255,255,0.8); }
+  .witness-phone a:hover { text-decoration: underline; }
   .phone-icon { width: 16px; height: 16px; display: inline-block; }
 
   @media (max-width: 768px) {
-    .witnesses-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .witnesses-grid { grid-template-columns: 1fr; gap: 1.25rem; }
     .witness-photo { width: 130px; height: 130px; }
   }
   /* ===== Ende Trauzeugen-Section ===== */
@@ -742,7 +741,7 @@
   <div class="witnesses-grid">
     <!-- Trauzeuge 1 -->
     <figure class="witness-card">
-      <img class="witness-photo" src="Trauzeugin1.jpeg" alt="Foto Trauzeuge 1">
+      <img class="witness-photo" src="trauzeuge1.jpg" alt="Foto Trauzeuge 1">
       <figcaption>
         <div class="witness-name">Max Mustermann</div>
         <div class="witness-role">Trauzeuge von Stefanie</div>
