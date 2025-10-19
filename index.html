@@ -1,59 +1,300 @@
-/* ===== LOGIN OVERLAY (aktiv) ===== */
-body.locked { overflow: hidden; }
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stefanie & Justin</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
 
-#login-screen {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* statt Foto: kein eigener Hintergrund -> der Seiten-Verlauf scheint durch */
-  background: transparent;
-}
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-style: italic;
+      text-align: center;
+      background: linear-gradient(135deg,
+        #d8d1b4 0%,
+        #c5b294 25%,
+        #b8a27d 50%,
+        #c0c7b1 75%,
+        #b6b09b 100%
+      );
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      z-index: -1;
+    }
 
-/* keine zusätzliche Abdunklung nötig – Verlauf kommt von <body> */
-#login-screen::before { content: none; }
+    /* ===== LOGIN OVERLAY (aktiv) – mit Verlauf statt Foto ===== */
+    body.locked { overflow: hidden; }
 
-.login-box {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.9rem;
-  padding: 1.6rem 1.4rem;
-  border-radius: 20px;
-  /* zarte Glasoptik über dem Verlauf */
-  background: rgba(255,255,255,0.18);
-  box-shadow: 0 6px 25px rgba(0,0,0,0.18);
-  backdrop-filter: blur(6px);
-  color: #5c4b3e;               /* Text jetzt dunkel, passend zur Palette */
-  width: min(92vw, 420px);
-}
+    #login-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* kein Bild – Verlauf vom Body scheint durch */
+      background: transparent;
+    }
+    #login-screen::before { content: none; }
 
-.login-box h2 {
-  margin: 0 0 .3rem 0;
-  font-family: 'Playfair Display', serif;
-  font-weight: 600;
-  letter-spacing: .3px;
-  color: #5c4b3e;
-}
+    .login-box {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 1.6rem 1.4rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.18);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.18);
+      backdrop-filter: blur(6px);
+      color: #5c4b3e;
+      width: min(92vw, 420px);
+    }
+    .login-box h2 {
+      margin: 0 0 .3rem 0;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: .3px;
+      color: #5c4b3e;
+    }
+    .login-field { width: 100%; position: relative; }
+    .login-input {
+      width: 100%;
+      padding: 0.9rem 3.1rem 0.9rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(108,95,80,0.35);
+      background: rgba(255,255,255,0.55);
+      color: #5c4b3e;
+      font-size: 1rem;
+      outline: none;
+    }
+    .login-input::placeholder { color: rgba(92,75,62,0.7); }
 
-.login-field { width: 100%; position: relative; }
+    .toggle-visibility {
+      position: absolute;
+      right: 0.4rem;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      padding: .35rem;
+      border-radius: 8px;
+      line-height: 0;
+      color: #5c4b3e; /* steuert die SVG-Farbe via currentColor */
+    }
+    .toggle-visibility svg { width: 22px; height: 22px; }
 
-.login-input {
-  width: 100%;
-  padding: 0.9rem 3.1rem 0.9rem 1rem;
-  border-radius: 12px;
-  border: 1px solid rgba(108,95,80,0.35);
-  background: rgba(255,255,255,0.55);
-  color: #5c4b3e;               /* dunkler Input-Text */
-  font-size: 1rem;
-  outline: none;
-}
-.login-input::placeholder { color: rgba(92,75,62,0.7); }
+    .login-actions {
+      display: flex;
+      gap: .6rem;
+      width: 100%;
+      justify-content: center;
+      margin-top: 0.3rem;
+    }
+    .login-button {
+      background: rgba(255,255,255,0.9);
+      color: #6d7f5f;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      padding: 0.8rem 1.6rem;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .login-button:hover { background: rgba(255,255,255,0.98); transform: translateY(-1px); }
 
-.toggle-visibility {
-  position: absolute;
-  right: 0.4rem;
+    #error { color: #7a2f2f; margin-top: 0.4rem; min-height: 1.2em; }
+    .login-note { font-size: .9rem; opacity: .9; margin-top: .2rem; }
+
+    @media (max-width: 768px) {
+      .login-box { padding: 1.4rem 1rem; }
+    }
+    /* ===== ENDE LOGIN ===== */
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url("Steffi&Justin-9.jpg") center top / cover no-repeat;
+      background-size: cover;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .overlay {
+      background: rgba(0, 0, 0, 0.4);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
+    .hero-content img {
+      max-width: 600px; width: 100%; height: auto; margin: 1rem 0;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+    }
+    @media (max-width: 768px) {
+      .hero-content img { max-width: 350px; margin-top: -160px; }
+    }
+    .hero-content a button {
+      margin-top: 2rem;
+      background: rgba(255, 255, 255, 0.7);
+      color: #6d7f5f;
+      border: none; border-radius: 35px; cursor: pointer;
+      padding: 1rem 2.4rem; font-size: 1.3rem; font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .hero-content a button:hover { background: rgba(140, 119, 96, 0.9); color: #fff; }
+    @media (max-width: 768px) {
+      .hero-content a button { font-size: 1.1rem; padding: 0.9rem 2rem; }
+    }
+
+    /* Timetable */
+    .timetable { background: none; padding: 2rem; }
+    .timetable img { max-width: 100%; height: auto; display: block; margin: 0 auto; border: none; box-shadow: none; border-radius: 0; }
+
+    /* Portrait-Section mit Parallax */
+    .portrait-section { position: relative; height: 40vh; overflow: hidden; }
+    .parallax-bg {
+      background: url("Steffi&Justin-7.jpg") center center / cover no-repeat;
+      position: absolute; top: 0; left: 0; width: 100%; height: 200%;
+      transform: translateY(0); will-change: transform; z-index: 0;
+    }
+    .parallax-bg2 {
+      background: url("Steffi&Justin-17.jpg") center center / cover no-repeat;
+      position: absolute; top: 0; left: 0; width: 100%; height: 200%;
+      transform: translateY(0); will-change: transform; z-index: 0;
+    }
+    .portrait-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: none; z-index: 1; }
+    .portrait-content {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      z-index: 2; text-align: center; color: white; width: 90%; max-width: 800px; margin: 0 auto; padding: 0 1rem; line-height: 1.4;
+    }
+    .portrait-content blockquote { font-size: 1.8rem; font-style: italic; line-height: 1.4; margin: 0; }
+    .portrait-content blockquote span { display: block; margin-top: 1rem; font-size: 1rem; opacity: 0.85; }
+    @media (max-width: 768px) {
+      .portrait-content blockquote { font-size: 1rem; line-height: 1.3; }
+      .portrait-content blockquote span { font-size: 0.8rem; }
+    }
+
+    /* Map Style */
+    .map-section { display: flex; justify-content: center; align-items: center; background: transparent; padding: 2rem 0; }
+    .map-container { position: relative; width: 350px; aspect-ratio: 1 / 1;
+      clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+      overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: transform 0.3s ease;
+    }
+    .map-container iframe { width: 100%; height: 100%; display: block; border: none; }
+    .map-hover { position: absolute; inset: 0; background: rgba(140, 119, 96, 0.9); opacity: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.4s ease; }
+    .pin-icon { width: 80px; height: 80px; background: url('pin.png') center center / contain no-repeat; opacity: 0.8; filter: brightness(10); }
+    .map-container:hover .map-hover { opacity: 1; }
+    .map-container:hover { transform: scale(1.02); }
+    @media (max-width: 768px) {
+      .map-container { width: 250px; }
+      .pin-icon { width: 60px; height: 60px; }
+    }
+    @media (max-width: 480px) {
+      .map-container { width: 200px; }
+      .pin-icon { width: 50px; height: 50px; }
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      background: rgba(241, 230, 201, 0.6);
+      backdrop-filter: blur(6px);
+      margin: 3rem auto;
+      padding: 3rem 1rem;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+    }
+    .faq-section h2 { font-size: 2rem; color: #6d7f5f; margin-bottom: 2rem; letter-spacing: 1px; }
+    .faq-item { margin-bottom: 1rem; border-radius: 15px; overflow: hidden; background: rgba(255,255,255,0.4); box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.3s ease; }
+    .faq-item:hover { transform: translateY(-2px); }
+    .faq-question {
+      width: 100%; text-align: left; background: none; border: none; outline: none;
+      font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; padding: 1.5rem 0.5rem; color: #8c7760;
+      cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: color 0.3s ease;
+    }
+    .faq-question:hover { color: #a97c50; }
+    .faq-answer {
+      max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease;
+      background: rgba(255, 255, 255, 0.3); color: #5c4b3e; font-size: 1rem; line-height: 1.5;
+    }
+    .faq-item.active .faq-answer { max-height: 1000px; padding: 1rem 1.2rem; }
+    .faq-answer ul { list-style: none; padding-left: 0; margin: 1rem 0; text-align: left; }
+    .faq-answer li { margin-bottom: 0.8rem; line-height: 1.5; color: #5c4b3e; font-size: 1rem; }
+    @media (max-width: 768px) {
+      .faq-section { padding: 2rem 1rem; }
+      .faq-question img{ width: 280px; }
+      .faq-answer { font-size: 0.95rem; }
+      .faq-answer img{ width: 280px; }
+    }
+
+    /* Pinterest-Link */
+    .pinterest-link { margin-top: 1.5rem; display: flex; justify-content: center; }
+    .pinterest-link img {
+      width: 50px; height: 50px;
+      filter: brightness(0) invert(0.8);
+      opacity: 0.85;
+      transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+    }
+    .pinterest-link img:hover { transform: scale(1.1); opacity: 1; filter: brightness(1) invert(0.9) sepia(0.3) saturate(1.2); }
+    @media (max-width: 768px) { .pinterest-link img { width: 40px; height: 40px; } }
+
+    /* Countdown Zahlen */
+    #countdown { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+    .time-box { background: rgba(255, 255, 255, 0.15); padding: 1.2rem 2rem; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); min-width: 100px; }
+    .time-box span { display: block; font-size: 2rem; font-weight: 600; line-height: 1; }
+    .time-box small { display: block; font-size: 0.5rem; opacity: 0.9; }
+    @media (max-width: 768px) {
+      #countdown { gap: 0.6rem; }
+      .time-box { min-width: 70px; padding: 1rem; }
+      .time-box span { font-size: 2.2rem; }
+      .time-box small { font-size: 0.9rem; }
+    }
+
+    /* PIN-ANPASSUNGEN */
+    .faq-answer a.pin-link { display: block; margin-top: 0.6rem; }
+    .faq-answer img.pin-small {
+      width: 40px !important; height: 40px !important; object-fit: contain; vertical-align: middle;
+      filter: brightness(0); opacity: 1; transition: transform 0.15s ease;
+    }
+    .faq-answer a.pin-link:hover img.pin-small { transform: translateY(-1px); }
+    @media (max-width: 768px) { .faq-answer img.pin-small { width: 40px !important; height: 40px !important; } }
+
+    /* Hinweis unter dem RSVP-Button (weiß, klein) */
+    .hero-content .rsvp-note { margin-top: 0.5rem; font-size: 0.9rem; color: #fff; opacity: 0.95; }
+
+    /* Trauzeugen-Section (ohne Box-Hintergründe) */
+    .witnesses-section {
+      background: transparent; backdrop-filter: none; margin: 3rem auto 4rem; padding: 1rem 0;
+      width: 90%; max-width: 900px; box-shadow: none;
+    }
+    .witnesses-title-img { display: block; margin: 0 auto 1.5rem auto; max-width: 320px; width: 80%; height: auto; }
+    .witnesses-grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem 3rem; align-items: start; justify-items: center;
+    }
+    .witness-card { display: flex; flex-direction: column; align-items: center; text-align: center; background: transparent; padding: 0; box-shadow: none; width: auto; max-width: 360px; }
+    .witness-photo { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid rgba(255,255,255,0.7); margin-bottom: 0.8rem; }
+    .witness-name { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.2rem; color: #5c4b3e; margin: .25rem 0 .1rem; }
+    .witness-role { font-size: 0.95rem; color: #7a6a59; margin: 0 0 .6rem 0; }
+    .witness-phone a { display: inline-flex; align-items: center; gap: .4rem; text-decoration: none; color: #6d7f5f; font-weight: 600; padding: 0; border-radius: 0; box-shadow: none; }
+    .witness-phone a:hover { text-decoration: underline; }
+    .phone-icon { width: 16px; height: 16px; display: inline-block; }
+    @media (max-wid
