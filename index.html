@@ -6,7 +6,6 @@
   <title>Stefanie & Justin</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
-    noscript { display: none !important; }
     
     body, html {
       margin: 0;
@@ -302,6 +301,15 @@
     .witness-phone a:hover { text-decoration: underline; }
     .phone-icon { width: 16px; height: 16px; display: inline-block; }
     @media (max-width: 768px) { .witnesses-grid { grid-template-columns: 1fr; gap: 1.25rem; } .witness-photo { width: 130px; height: 130px; } }
+  /* Trauzeugen-Section: unten keinen zusätzlichen Raum */
+.witnesses-section {
+  margin: 3rem auto 0;   /* statt 3rem auto 4rem */
+  padding-bottom: 0;
+}
+.witnesses-section:last-of-type { margin-bottom: 0; }
+
+/* falls irgendwo global unten Padding ist – sicherheitshalber */
+.site-content { padding-bottom: 0; }
   </style>
 </head>
 <body class="locked">
@@ -491,12 +499,6 @@
   </div>
   <!-- ===== ENDE versteckter Inhalt ===== -->
 
-  <noscript>
-    <style>#login-screen{display:none} .site-content{display:block !important}</style>
-    <div style="padding:1rem;color:#5c4b3e;background:rgba(255,255,255,.6);margin:1rem;border-radius:12px;">
-      JavaScript ist deaktiviert. Bitte JavaScript aktivieren, um die Seite anzuzeigen.
-    </div>
-  </noscript>
 
 <script>
 const passwordHash = "0ed93bf0a009d4fcdef56f82f69d4bdf6d1b78bafc33999c6acd01319f5a6c28"; // SHA-256
