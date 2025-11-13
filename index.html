@@ -186,6 +186,18 @@
   animation: bounce 1.5s infinite;
 }
 
+/* sanftes Auftauchen */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 0.9; transform: translateY(0); }
+}
+
+/* dezente Bounce-Animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
 .scroll-hint svg {
   width: 22px;
   height: 22px;
@@ -195,7 +207,7 @@
 
 @media (max-width: 768px) {
   .scroll-hint {
-    bottom: 2.5rem; /* Handy: etwas höher oder tiefer anpassen */
+    bottom: 4.0rem; /* Handy: etwas höher oder tiefer anpassen */
   }
   .scroll-hint svg {
     width: 20px;
