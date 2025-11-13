@@ -169,23 +169,24 @@
 .scroll-hint {
   position: absolute;
   right: 1.2rem;
-  bottom: 1rem;
+  bottom: 3rem; /* weiter nach oben verschoben */
   text-align: center;
   color: white;
   font-family: 'Playfair Display', serif;
   font-style: normal;
   font-size: 0.9rem;
   letter-spacing: 1px;
-  opacity: 0.8;
+  opacity: 0.85;
   animation: fadeIn 2s ease 1s forwards;
 }
 
 .scroll-hint .arrows {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  /* Pfeile untereinander */
   align-items: center;
-  font-size: 1.2rem;
+  justify-content: center;
   line-height: 1;
+  font-size: 1.3rem;
   margin-top: 0.2rem;
   animation: bounce 1.5s infinite;
 }
@@ -193,10 +194,10 @@
 /* sanftes Auftauchen */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 0.8; transform: translateY(0); }
+  to { opacity: 0.85; transform: translateY(0); }
 }
 
-/* dezente „Bounce“-Animation für Pfeile */
+/* dezente „Bounce“-Animation */
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(5px); }
@@ -205,11 +206,11 @@
 @media (max-width: 768px) {
   .scroll-hint {
     right: 0.8rem;
-    bottom: 0.8rem;
+    bottom: 2.2rem; /* auch auf Mobil etwas höher */
     font-size: 0.8rem;
   }
   .scroll-hint .arrows {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -400,7 +401,10 @@
       </div>
         <div class="scroll-hint">
     <div>Scroll</div>
-    <div class="arrows">˅˅</div>
+    <div class="arrows">
+      ˅
+      ˅
+    </div>
   </div>
     </div>
 
