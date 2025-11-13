@@ -165,9 +165,9 @@
     @media (max-width: 768px) {
       .hero-content a button { font-size: 1.1rem; padding: 0.9rem 2rem; }
     }
-    /* Scroll-Hinweis zentriert unter dem RSVP-Text */
+/* Scroll-Hinweis unter dem RSVP-Text */
 .scroll-hint {
-  margin-top: 1.2rem; /* Abstand über den Pfeilen */
+  margin-top: 2rem; /* etwas weiter nach unten */
   text-align: center;
   color: white;
   font-family: 'Playfair Display', serif;
@@ -177,19 +177,11 @@
   animation: fadeIn 2s ease 1s forwards;
 }
 
-.scroll-hint .arrows {
+.scroll-hint .arrow-svg {
   display: flex;
-  flex-direction: column; /* Pfeile untereinander */
-  align-items: center;
   justify-content: center;
-  margin-top: 0.3rem;
-  font-size: 1.3rem;
-  line-height: 1.1;
+  margin-top: 0.4rem;
   animation: bounce 1.5s infinite;
-}
-
-.scroll-hint .arrows span {
-  display: block;
 }
 
 /* sanftes Auftauchen */
@@ -201,18 +193,27 @@
 /* dezente Bounce-Animation */
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(5px); }
+  50% { transform: translateY(6px); }
+}
+
+.scroll-hint svg {
+  width: 22px;
+  height: 22px;
+  stroke: white;
+  opacity: 0.9;
 }
 
 @media (max-width: 768px) {
   .scroll-hint {
-    margin-top: 1rem;
+    margin-top: 1.8rem; /* etwas kompakter auf Handy */
     font-size: 0.8rem;
   }
-  .scroll-hint .arrows {
-    font-size: 1.1rem;
+  .scroll-hint svg {
+    width: 20px;
+    height: 20px;
   }
 }
+
     /* Timetable */
     .timetable { background: none; padding: 2rem; }
     .timetable img { max-width: 100%; height: auto; display: block; margin: 0 auto; border: none; box-shadow: none; border-radius: 0; }
@@ -397,13 +398,15 @@
         </a>
         <p class="rsvp-note">Korrektur: Zu- oder Absagen bis zum 31.12.2025</p>
       </div>
-        <div class="scroll-hint">
-    <div>Scroll</div>
-    <div class="arrows">
-      <span>˅ ˅</span>
-      <span>˅ ˅</span>
-    </div>
+<div class="scroll-hint">
+  <div>Scroll</div>
+  <div class="arrow-svg">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
   </div>
+</div>
+
     </div>
 
     <!-- Timetable -->
