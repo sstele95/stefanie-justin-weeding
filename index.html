@@ -165,40 +165,40 @@
     @media (max-width: 768px) {
       .hero-content a button { font-size: 1.1rem; padding: 0.9rem 2rem; }
     }
-    /* Scroll-Hinweis unten rechts im Hero-Bereich */
+    /* Scroll-Hinweis zentriert unter dem RSVP-Text */
 .scroll-hint {
-  position: absolute;
-  right: 1.2rem;
-  bottom: 3rem; /* weiter nach oben verschoben */
+  margin-top: 1.2rem; /* Abstand über den Pfeilen */
   text-align: center;
-  transform: translateX(-50%);
   color: white;
   font-family: 'Playfair Display', serif;
-  font-style: normal;
   font-size: 0.9rem;
   letter-spacing: 1px;
-  opacity: 0.85;
+  opacity: 0.9;
   animation: fadeIn 2s ease 1s forwards;
 }
 
 .scroll-hint .arrows {
   display: flex;
-  flex-direction: column;  /* Pfeile untereinander */
+  flex-direction: column; /* Pfeile untereinander */
   align-items: center;
   justify-content: center;
-  line-height: 1;
+  margin-top: 0.3rem;
   font-size: 1.3rem;
-  margin-top: 0.2rem;
+  line-height: 1.1;
   animation: bounce 1.5s infinite;
+}
+
+.scroll-hint .arrows span {
+  display: block;
 }
 
 /* sanftes Auftauchen */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 0.85; transform: translateY(0); }
+  to { opacity: 0.9; transform: translateY(0); }
 }
 
-/* dezente „Bounce“-Animation */
+/* dezente Bounce-Animation */
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(5px); }
@@ -206,16 +206,13 @@
 
 @media (max-width: 768px) {
   .scroll-hint {
-    right: 0.8rem;
-    bottom: 4.0rem; /* auch auf Mobil etwas höher */
+    margin-top: 1rem;
     font-size: 0.8rem;
   }
   .scroll-hint .arrows {
     font-size: 1.1rem;
   }
 }
-
-
     /* Timetable */
     .timetable { background: none; padding: 2rem; }
     .timetable img { max-width: 100%; height: auto; display: block; margin: 0 auto; border: none; box-shadow: none; border-radius: 0; }
