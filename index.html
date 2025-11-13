@@ -165,9 +165,11 @@
     @media (max-width: 768px) {
       .hero-content a button { font-size: 1.1rem; padding: 0.9rem 2rem; }
     }
-/* Scroll-Hinweis unter dem RSVP-Text */
 .scroll-hint {
-  margin-top: 5rem; /* etwas weiter nach unten */
+  position: absolute; /* unabhängig vom Flow */
+  left: 50%;
+  bottom: 3rem; /* Abstand vom unteren Rand */
+  transform: translateX(-50%);
   text-align: center;
   color: white;
   font-family: 'Playfair Display', serif;
@@ -184,18 +186,6 @@
   animation: bounce 1.5s infinite;
 }
 
-/* sanftes Auftauchen */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 0.9; transform: translateY(0); }
-}
-
-/* dezente Bounce-Animation */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
-}
-
 .scroll-hint svg {
   width: 22px;
   height: 22px;
@@ -205,14 +195,14 @@
 
 @media (max-width: 768px) {
   .scroll-hint {
-    margin-top: 1.5rem; /* etwas kompakter auf Handy */
-    font-size: 0.8rem;
+    bottom: 2.5rem; /* Handy: etwas höher oder tiefer anpassen */
   }
   .scroll-hint svg {
     width: 20px;
     height: 20px;
   }
 }
+
 
     /* Timetable */
     .timetable { background: none; padding: 2rem; }
