@@ -165,8 +165,10 @@
     @media (max-width: 768px) {
       .hero-content a button { font-size: 1.1rem; padding: 0.9rem 2rem; }
     }
+
+/* Scroll-Hinweis unten mittig */
 .scroll-hint {
-  position: absolute; /* unabhängig vom Flow */
+  position: absolute;
   left: 50%;
   bottom: 3rem; /* Abstand vom unteren Rand */
   transform: translateX(-50%);
@@ -179,17 +181,26 @@
   animation: fadeIn 2s ease 1s forwards;
 }
 
+/* Wrapper für den Pfeil */
 .scroll-hint .arrow-svg {
   display: flex;
   justify-content: center;
   margin-top: 0.4rem;
+}
+
+/* SVG selbst mit Bounce-Animation */
+.scroll-hint svg {
+  width: 22px;
+  height: 22px;
+  stroke: white;
+  opacity: 0.9;
   animation: bounce 1.5s infinite;
 }
 
 /* sanftes Auftauchen */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 0.9; transform: translateY(0); }
+  from { opacity: 0; transform: translate(-50%, 10px); }
+  to { opacity: 0.9; transform: translate(-50%, 0); }
 }
 
 /* dezente Bounce-Animation */
@@ -198,22 +209,18 @@
   50% { transform: translateY(6px); }
 }
 
-.scroll-hint svg {
-  width: 22px;
-  height: 22px;
-  stroke: white;
-  opacity: 0.9;
-}
-
+/* Responsive Anpassung */
 @media (max-width: 768px) {
   .scroll-hint {
-    bottom: 4.0rem; /* Handy: etwas höher oder tiefer anpassen */
+    bottom: 5.5rem;
+    font-size: 0.8rem;
   }
   .scroll-hint svg {
     width: 20px;
     height: 20px;
   }
 }
+
 
 
     /* Timetable */
